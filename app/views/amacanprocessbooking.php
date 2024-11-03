@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   </script>";
         exit;
     }
-    
+
     $contact_number = $_POST['contact_number'];
     $room = $_POST['room'];
     $quantity = $_POST['quantity'];
@@ -57,12 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check available slots before making any updates
     $stmt = $pdo->prepare("SELECT slots FROM availableslots WHERE date = :date AND session = :session AND name IN ('Amacan', '22 Hours')");
-$stmt->bindParam(':date', $preferred_date); // Ensure you use the correct variable
-$stmt->bindParam(':session', $session);
-$stmt->execute();
-$slot = $stmt->fetch(PDO::FETCH_ASSOC); // Fetch as an associative array
-
-
+    $stmt->bindParam(':date', $preferred_date); // Ensure you use the correct variable
+    $stmt->bindParam(':session', $session);
+    $stmt->execute();
+    $slot = $stmt->fetch(PDO::FETCH_ASSOC); // Fetch as an associative array
 
     if ($slot['slots'] > 0) {
         // Proceed with slot adjustments
@@ -80,13 +78,13 @@ $slot = $stmt->fetch(PDO::FETCH_ASSOC); // Fetch as an associative array
                 $stmt->bindParam(':date', $preferred_date);
                 $stmt->bindParam(':session', $session);
                 $stmt->execute();
-            
+
                 // Set "22 Hours" slot to 0 if either AM or PM is booked
                 $stmt = $pdo->prepare("UPDATE availableslots SET slots = 0 WHERE date = :date AND session = '22 Hours' AND name IN ('Amacan', 'VR House', '22 Hours ')");
                 $stmt->bindParam(':date', $preferred_date);
                 $stmt->execute();
             }
-            
+
 
             // Create an instance of the controller
             $controller = new Camacanbook($pdo);

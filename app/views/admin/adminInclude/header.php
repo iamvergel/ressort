@@ -1,19 +1,20 @@
-<div class="text-light bg-primary w-100 py-3 rounded-2">
-<div id="current-date-time" class="p-3" style="font-size: 12px"></div>
-<h1 class="mx-5 fw-bold"><i class="bi bi-person-fill me-3"></i>Admim Side</h1>
+<!-- Inside header.php -->
+<div class="container-fluid text-light py-4 rounded-2 mt-2 d-flex justify-content-between align-items-center pe-5" style="background-color: #011F37ff">
+    <button id="toggleSidebar" class="btn btn-light btn-sm ms-2" style="height: 30px;"><i class="bi bi-list"></i></button>
+    <h1 class="mx-2 fw-bold"><i class="bi bi-person-fill me-3"></i>Admin Side</h1>
 </div>
 
 <script>
-        let currentMonth = new Date().getMonth();
-        let currentYear = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggleButton = document.getElementById('toggleSidebar');
+        const sidebar = document.querySelector('.sidebar');
 
-        // Display current date, time, and day
-        function updateDateTime() {
-            const now = new Date();
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            const formattedDate = now.toLocaleDateString(undefined, options);
-            const formattedTime = now.toLocaleTimeString();
-            document.getElementById('current-date-time').innerText = `${formattedDate}, ${formattedTime}`;
-        }
-        setInterval(updateDateTime, 0); // Update every second
-    </script>
+        toggleButton.addEventListener('click', function () {
+            if (sidebar.style.marginLeft === '-350px') {
+                sidebar.style.marginLeft = '0'; // Show sidebar
+            } else {
+                sidebar.style.marginLeft = '-350px'; // Hide sidebar
+            }
+        });
+    });
+</script>

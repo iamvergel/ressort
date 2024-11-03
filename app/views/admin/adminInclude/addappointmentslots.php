@@ -1,8 +1,9 @@
 <?php
-include_once '../../../../configuration/dbConnection.php';
+require_once(dirname(__DIR__, 3) . '/../configuration/dbConnection.php');
 
 // Function to determine if the given date is a weekend
-function isWeekend($date) {
+function isWeekend($date)
+{
     return (date('N', strtotime($date)) >= 6); // 6 (Saturday) and 7 (Sunday) are weekend days
 }
 
@@ -58,6 +59,7 @@ try {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,6 +67,7 @@ try {
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
+
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">Add Available Slots</h1>
@@ -82,19 +85,21 @@ try {
         <form action="" method="POST" id="appointmentForm">
             <div class="mb-3">
                 <label for="date" class="form-label">Date</label>
-                <input type="text" id="date" name="date" class="form-control" required>
+                <input type="text" id="date" name="date" class="form-control border-1 border-primary" required>
             </div>
             <button type="submit" class="btn btn-primary">Add Available Slots</button>
         </form>
 
-        <h2 class="mt-5">Available Dates with Slots</h2>
-        <ul id="availableDates" class="list-group mt-3">
-            <?php foreach ($availableDates as $availableDate): ?>
-                <li class="list-group-item">
-                    <?php echo htmlspecialchars($availableDate); ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+        <h3 class="mt-5 my-3"> <i class="bi bi-clock-history me-2"></i>History Appointment Dates and Slots</h3>
+        <div class="container-fluid border border-1 border-primary rounded-2 p-3" style="height: 200px; overflow-y: scroll;">
+            <ul id="availableDates" class="list-group mt-3">
+                <?php foreach ($availableDates as $availableDate): ?>
+                    <li class="list-group-item">
+                        <?php echo htmlspecialchars($availableDate); ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -102,16 +107,17 @@ try {
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        let availableDates = <?php echo json_encode($availableDates); ?>;
+        document.addEventListener('DOMContentLoaded', function () {
+            let availableDates = <?php echo json_encode($availableDates); ?>;
 
-        flatpickr('#date', {
-            dateFormat: 'Y-m-d',
-            minDate: "today", // Disable past dates
-            disable: availableDates.map(date => date), // Disable already taken dates
+            flatpickr('#date', {
+                dateFormat: 'Y-m-d',
+                minDate: "today", // Disable past dates
+                disable: availableDates.map(date => date), // Disable already taken dates
+            });
         });
-    });
     </script>
 
 </body>
+
 </html>

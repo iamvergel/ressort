@@ -2,19 +2,26 @@ $white: #ffffffff;
 $jet: #35323aff;
 $ghost-white: #f4f1f6ff;
 $sunset: #fbd69cff;
-$nav: #f0eaff;
 $thistle: #d5ccdfff;
-$buff: #d5996e;
+$buff: #d5996eff;
 $cool-gray: #8d82a5ff;
 $cool-gray-2: #9b8fb6ff;
 $cinereous: #816f6fff;
-$ultra-violet: #393050;
+$ultra-violet: #6d5f92ff;
+$text: #413958;
+$oxford-blue: #011F37ff;
+$icterine: #F8F269ff;
+$icterine1:#f8f169a1;
 
 .navbar {
-  background-color: transparent;
+  background-color: $oxford-blue;
   height: 100px;
   transition: all 0.3s ease;
   animation: navbar 0.5s ease;
+
+  @media (min-width: 992px) {
+    background-color: transparent;
+  }
 
   @keyframes navbar {
     from {
@@ -33,6 +40,14 @@ $ultra-violet: #393050;
   .nav {
     height: 80px;
     transition: all 0.3s ease;
+  }
+
+  .navbar-nav {
+    background-color: $oxford-blue;
+
+    @media (min-width: 992px) {
+      background-color: transparent;
+    }
   }
 
   .nav-link {
@@ -61,4 +76,9 @@ $ultra-violet: #393050;
       transform-origin: center;
     }
   }
+}
+
+.offcanvas {
+  background-color: $oxford-blue;
+  color: $white;
 }

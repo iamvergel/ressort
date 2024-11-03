@@ -1,8 +1,13 @@
 .navbar {
-  background-color: transparent;
+  background-color: #011f37;
   height: 100px;
   transition: all 0.3s ease;
   animation: navbar 0.5s ease;
+}
+@media (min-width: 992px) {
+  .navbar {
+    background-color: transparent;
+  }
 }
 @keyframes navbar {
   from {
@@ -18,6 +23,14 @@
 .navbar .nav {
   height: 80px;
   transition: all 0.3s ease;
+}
+.navbar .navbar-nav {
+  background-color: #011f37;
+}
+@media (min-width: 992px) {
+  .navbar .navbar-nav {
+    background-color: transparent;
+  }
 }
 .navbar .nav-link {
   color: white;
@@ -40,4 +53,9 @@
 .navbar .nav-link:hover::before, .navbar .nav-link:hover::after {
   transform: scaleX(1);
   transform-origin: center;
+}
+
+.offcanvas {
+  background-color: #011f37;
+  color: white;
 }

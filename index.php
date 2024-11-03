@@ -30,10 +30,30 @@ if ($uri === '') {
 
     require_once 'app/views/admin/adminamacan.php';
 
+} elseif ($uri === '/adminInquiries/Vrhouse') {
+
+    require_once 'app/views/admin/adminvrhouse.php';
+    
+} elseif ($uri === '/adminInquiries/AmacananVrhouse') {
+
+    require_once 'app/views/admin/adminamacanvr.php';
+    
 } elseif ($uri === '/dashboard') {
 
     require_once(__DIR__ . '/app/views/admin/dashboard.php');
     
+} elseif ($uri === '/AddAppointment') {
+
+    require_once 'app/views/admin/adminaddappointment.php';
+
+} elseif ($uri === '/AcceptedInquiries') {
+
+    require_once 'app/views/admin/adminaccepted.php';
+
+} elseif ($uri === '/DeclinedInquiries') {
+
+    require_once 'app/views/admin/admindecline.php';
+
 } elseif ($uri === '/logout') {
 
     require_once(__DIR__ . '/app/views/admin/logout.php');
@@ -42,7 +62,7 @@ if ($uri === '') {
 
     require_once(__DIR__ . '/app/views/room.php');
     
-} elseif ($uri === '/amacan') {
+}  elseif ($uri === '/amacan') {
 
     require_once(__DIR__ . '/app/views/amacanbook.php');
     

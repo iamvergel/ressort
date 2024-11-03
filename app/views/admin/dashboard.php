@@ -14,11 +14,11 @@ $stmt = $pdo->prepare("SELECT COUNT(*) FROM inquiries WHERE room = 'Amacan' AND 
 $stmt->execute();
 $amacanCount = $stmt->fetchColumn();
 
-$stmt = $pdo->prepare("SELECT COUNT(*) FROM inquiries WHERE room = 'VR House'");
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM inquiries WHERE room = 'VR House' AND status = 'pending'");
 $stmt->execute();
 $vrhouseCount = $stmt->fetchColumn();
 
-$stmt = $pdo->prepare("SELECT COUNT(*) FROM inquiries WHERE room = 'Amacan & VR House'");
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM inquiries WHERE room = 'Amacan & VR House' AND status = 'pending'");
 $stmt->execute();
 $amacanvrhouseCount = $stmt->fetchColumn();
 ?>
@@ -51,6 +51,7 @@ $amacanvrhouseCount = $stmt->fetchColumn();
             padding: 0;
             box-sizing: border-box;
             font-family: "Poppins", system-ui;
+            scrollbar-width: thin;
         }
 
         body {
@@ -68,36 +69,129 @@ $amacanvrhouseCount = $stmt->fetchColumn();
 </head>
 
 <body>
-
+    <?php include 'app/views/admin/adminInclude/header-top.php'; ?>
     <div class="d-flex">
         <?php include 'app/views/admin/adminInclude/sidebar.php'; ?>
 
-        <div class="container-fluid content">
+        <div class="container-fluid" style="height: 100vh; overflow-y: scroll; scrollbar-width: none;">
             <?php include 'app/views/admin/adminInclude/header.php'; ?>
 
-            <h2 class="my-5 fw-bold">Welcome, <?php echo htmlspecialchars($_SESSION['user']); ?>!</h2>
+            <div class="container">
+                <div class="row mt-5">
+                    <div class="col text-center py-5 mx-2">
+                        <div class="card bg-white text-light shadow-lg rounded-3 p-2">
+                            <div class="card-header bg-warning">
+                                <h4 class="mb-0 fw-bold"><i class="bi bi-people-fill me-2"></i>Amacan Inquiries</h4>
+                            </div>
+                            <div class="card-body text-end text-warning">
+                                <h2 class="card-text fw-bold mt-3"><?php echo $amacanCount; ?></h2>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="w-100 row mt-5">
-                <div class="col text-center py-5 bg-warning rounded-5 text-light shadow-lg mx-2 card">
-                    <h3 class="fw-bold"><i class="bi bi-people-fill me-2"></i>Amacan Inquiries</h3>
-                    <h2 class="fw-bold mt-3"><?php echo $amacanCount; ?></h2>
-                </div>
-                <div class="col text-center py-5 bg-success rounded-5 text-light shadow-lg mx-2 card">
-                    <h3 class="fw-bold"><i class="bi bi-people-fill me-2"></i>VRHouse Inquiries</h3>
-                    <h2 class="fw-bold mt-3"><?php echo $vrhouseCount; ?>
-                        <h2>
+                    <div class="col text-center py-5 mx-2">
+                        <div class="card bg-light text-light shadow-lg rounded-3 p-2">
+                            <div class="card-header bg-success">
+                                <h4 class="mb-0 fw-bold"><i class="bi bi-people-fill me-2"></i>VR House Inquiries</h4>
+                            </div>
+                            <div class="card-body text-success text-end">
+                                <h2 class="card-text fw-bold mt-3"><?php echo $vrhouseCount; ?></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col text-center py-5 mx-2">
+                        <div class="card bg-light text-light shadow-lg rounded-3 p-2">
+                            <div class="card-header bg-primary">
+                                <h4 class="mb-0 fw-bold"><i class="bi bi-people-fill me-2"></i>Amacan & VR Houses
+                                    Inquiries</h4>
+                            </div>
+                            <div class="card-body text-primary text-end">
+                                <h2 class="card-text fw-bold mt-3"><?php echo $amacanvrhouseCount; ?></h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col text-center py-5 bg-primary rounded-5 text-light shadow-lg mx-2 card">
-                    <h3 class="fw-bold"><i class="bi bi-people-fill me-2"></i>22 Housrs Inquiries</h3>
-                    <h2 class="fw-bold mt-3"><?php echo $amacanvrhouseCount; ?>
-                        <h2>
+                <div class="row mt-5">
+                    <div class="col-6 text-center">
+                        <h3 class="fw-bold">Inquiries Overview</h3>
+                        <canvas id="inquiriesChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('inquiriesChart').getContext('2d');
+        const inquiriesChart = new Chart(ctx, {
+            type: 'line', // Change to 'line'
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'], // Example labels for weeks
+                datasets: [
+                    {
+                        label: 'Amacan Inquiries',
+                        data: [<?php echo $amacanCount; ?>, 5, 8, 3], // Replace with actual data points
+                        borderColor: 'rgba(255, 193, 7, 1)',
+                        backgroundColor: 'rgba(255, 193, 7, 0.6)',
+                        fill: false,
+                        tension: 0.1
+                    },
+                    {
+                        label: 'VR House Inquiries',
+                        data: [<?php echo $vrhouseCount; ?>, 7, 6, 9], // Replace with actual data points
+                        borderColor: 'rgba(40, 167, 69, 1)',
+                        backgroundColor: 'rgba(40, 167, 69, 0.6)',
+                        fill: false,
+                        tension: 0.1
+                    },
+                    {
+                        label: 'Amacan & VR House Inquiries',
+                        data: [<?php echo $amacanvrhouseCount; ?>, 10, 12, 15], // Replace with actual data points
+                        borderColor: 'rgba(0, 123, 255, 1)',
+                        backgroundColor: 'rgba(0, 123, 255, 0.6)',
+                        fill: false,
+                        tension: 0.1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Inquiries'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Weeks'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function (tooltipItem) {
+                                return `${tooltipItem.dataset.label}: ${tooltipItem.raw}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 
 </body>
 

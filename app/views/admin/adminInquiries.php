@@ -60,17 +60,27 @@ $amacanInquiries = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 <body>
+    <?php include 'app/views/admin/adminInclude/header-top.php'; ?>
+    <div class="d-flex">
+        <?php include 'app/views/admin/adminInclude/sidebar.php'; ?>
 
-    <?php include 'app/views/admin/adminInclude/sidebar.php'; ?>
+        <div class="container-fluid">
+            <?php include 'app/views/admin/adminInclude/header.php'; ?>
+            <h2 class="my-5 fw-bold"><i class="bi bi-people-fill me-2"></i>Inquiries</h2>
 
-    <div class="content">
-        <?php include 'app/views/admin/adminInclude/header.php'; ?>
-        <h2 class="my-5 fw-bold"><i class="bi bi-people-fill me-2"></i>Inquiries</h2>
-
-        <div class="row w-100 my-5">
-            <button class="col btn btn-warning p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold amacan" onclick="window.location.href = '/adminInquiries/Amacan'"><i class="bi bi-house-fill me-2"></i>Amacan</button>
-            <button class="col btn btn-success p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold vrhouse"><i class="bi bi-house-door-fill me-2"></i>VR House</button>
-            <button class="col btn btn-primary p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold 22hrs"><i class="bi bi-clock-fill me-2"></i>22 Hours</button>
+            <div class="row w-100 my-5">
+                <button class="col btn btn-warning p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold amacan"
+                    onclick="window.location.href = '/adminInquiries/Amacan'"><i
+                        class="bi bi-house-fill me-2"></i>Amacan</button>
+                <button
+                    class="col btn btn-success p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold vrhouse"
+                    onclick="window.location.href = '/adminInquiries/Vrhouse'"><i
+                        class="bi bi-house-door-fill me-2"></i>VR
+                    House</button>
+                <button class="col btn btn-primary p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold 22hrs"
+                    onclick="window.location.href = '/adminInquiries/AmacananVrhouse'"><i
+                        class="bi bi-houses-fill me-2"></i>Amacan & VR House</button>
+            </div>
         </div>
     </div>
 

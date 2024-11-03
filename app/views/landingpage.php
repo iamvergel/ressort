@@ -3,7 +3,7 @@
 <div class="landingpage">
   <?php include 'app/include/landingpageBackground.php'; ?>
 
-  <div class="container-fluid ressort">
+  <div class="container-fluid ressort d-none lg-d-block">
     <div class="text-center text-light z-2 py-3 px-5">
       <h3 class="fw-normal mb-4">Welcome to</h3>
       <h1 class="fw-bold"><span>Villa Reyes Family </span><br /> Private Resort</h1>
@@ -106,34 +106,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  const cols = document.querySelectorAll('.col-box');
-
-  cols.forEach(col => {
-    const img = col.querySelector('img');
-
-    // Add mouseenter event listener to images
-    img.addEventListener('mouseenter', () => {
-      cols.forEach(otherCol => {
-        // Expand the hovered image's column and shrink others
-        if (otherCol === col) {
-          otherCol.classList.remove('col-2');
-          otherCol.classList.add('col-7');
-        } else {
-          otherCol.classList.remove('col-2');
-          otherCol.classList.add('col-1');
-        }
-      });
-    });
-
-    // Add mouseleave event listener
-    img.addEventListener('mouseleave', () => {
-      cols.forEach(otherCol => {
-        // Reset all columns back to original size
-        otherCol.classList.remove('col-7', 'col-1');
-        otherCol.classList.add('col-2');
-      });
-    });
-  });
-</script>

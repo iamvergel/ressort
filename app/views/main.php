@@ -5,16 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Villa Reyes Ressort</title>
-    <link rel="shortcut icon" href="public\assets\images\logo\villaresortlogo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="public/assets/images/logo/villaresortlogo.png" type="image/x-icon">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
 
-
-    <link rel="stylesheet" href="..\public\assets\css\main.css">
+    <link rel="stylesheet" href="public/assets/css/main.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,13 +28,6 @@
     <!-- Landing Page -->
     <?php include 'app/views/landingpage.php'; ?>
 
-    <!-- Buittons -->
-    <?php include 'app/include/chatbotButton.php'; ?>
-
-    <!-- appointment Information -->
-    <?php include 'app/include/appointmentForm.php'; ?>
-    <?php include 'app/include/calendarModal.php'; ?>
-
     <!-- Contact -->
     <?php include 'app/views/contact.php'; ?>
 
@@ -45,6 +36,37 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+    <script>
+        const cols = document.querySelectorAll('.col-box');
+
+        cols.forEach(col => {
+            const img = col.querySelector('img');
+
+            // Add mouseenter event listener to images
+            img.addEventListener('mouseenter', () => {
+                cols.forEach(otherCol => {
+                    // Expand the hovered image's column and shrink others
+                    if (otherCol === col) {
+                        otherCol.classList.remove('col-2');
+                        otherCol.classList.add('col-7');
+                    } else {
+                        otherCol.classList.remove('col-2');
+                        otherCol.classList.add('col-1');
+                    }
+                });
+            });
+
+            // Add mouseleave event listener
+            img.addEventListener('mouseleave', () => {
+                cols.forEach(otherCol => {
+                    // Reset all columns back to original size
+                    otherCol.classList.remove('col-7', 'col-1');
+                    otherCol.classList.add('col-2');
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
