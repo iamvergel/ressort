@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.services .amacan .header img {
+  filter: brightness(50%);
+}
+.services .amacan .header h1 {
+  color: #f8f269;
+  position: absolute;
+  font-size: 100PX;
+  letter-spacing: 5PX;
+  text-shadow: 0 0 20px rgba(248, 241, 105, 0.631372549);
+}
+.services .amacan .row {
+  background-color: #011f37;
+  border-block: 1px solid rgba(255, 255, 255, 0.5254901961);
+}
+.services .amacan .row img {
+  border: solid 2px white;
+  transition: all 0.3s ease;
+}
+.services .amacan .row img:hover {
+  transform: scale(1.02);
+}
+.services .amacan .row h1 {
+  color: #f8f269;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(248, 241, 105, 0.631372549);
+  font-size: 30px;
+}
+.services .amacan .row h3 {
+  color: #f8f269;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(248, 241, 105, 0.631372549);
+  font-size: 25px;
+}
+.services .amacan .row h5 {
+  color: white;
+  margin-block: 0.5rem;
+  font-size: 20px;
+}
+.services .amacan .row p {
+  color: white;
+  margin-bottom: 2rem;
+  line-height: 2;
+  font-size: 12px;
+}
+.services .amacan .row p span {
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #f8f269;
+}
+.services .vrhouse .header img {
+  filter: brightness(50%);
+}
+.services .vrhouse .header h1 {
+  color: #f8f269;
+  position: absolute;
+  font-size: 100PX;
+  letter-spacing: 5PX;
+  text-shadow: 0 0 20px rgba(248, 241, 105, 0.631372549);
+}
+.services .vrhouse .row {
+  background-color: #011f37;
+  border-block: 1px solid rgba(255, 255, 255, 0.5254901961);
+}
+.services .vrhouse .row img {
+  border: solid 2px white;
+  transition: all 0.3s ease;
+}
+.services .vrhouse .row img:hover {
+  transform: scale(1.02);
+}
+.services .vrhouse .row h1 {
+  color: #f8f269;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(248, 241, 105, 0.631372549);
+  font-size: 30px;
+}
+.services .vrhouse .row h3 {
+  color: #f8f269;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(248, 241, 105, 0.631372549);
+  font-size: 25px;
+}
+.services .vrhouse .row h5 {
+  color: white;
+  margin-block: 0.5rem;
+  font-size: 20px;
+}
+.services .vrhouse .row p {
+  color: white;
+  margin-bottom: 2rem;
+  line-height: 2;
+  font-size: 12px;
+}
+.services .vrhouse .row p span {
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #f8f269;
+}

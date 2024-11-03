@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.about .amacan .header img {
+  filter: brightness(50%);
+}
+.about .amacan .header h1 {
+  color: #f8f269;
+  position: absolute;
+  top: 15rem;
+  font-size: 100PX;
+  letter-spacing: 5PX;
+  text-shadow: 0 0 20px rgba(248, 241, 105, 0.631372549);
+}
+.about .amacan .row {
+  background-color: #011f37;
+  border-top: 1px solid white;
+}
+.about .amacan .row img {
+  border: solid 2px white;
+  transition: all 0.3s ease;
+}
+.about .amacan .row img:hover {
+  transform: scale(1.02);
+}
+.about .amacan .row h1 {
+  color: #f8f269;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(248, 241, 105, 0.631372549);
+  font-size: 30px;
+}
+.about .amacan .row h3 {
+  color: #f8f269;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-shadow: 0 0 20px rgba(248, 241, 105, 0.631372549);
+  font-size: 25px;
+}
+.about .amacan .row h5 {
+  color: white;
+  margin-block: 0.5rem;
+  font-size: 20px;
+}
+.about .amacan .row p {
+  color: white;
+  margin-bottom: 2rem;
+  line-height: 2;
+  font-size: 12px;
+}
+.about .amacan .row p span {
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #f8f269;
+}

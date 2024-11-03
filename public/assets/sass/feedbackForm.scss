@@ -1,0 +1,70 @@
+$white: #ffffffff;
+$jet: #35323aff;
+$ghost-white: #f4f1f6ff;
+$sunset: #fbd69cff;
+$thistle: #d5ccdfff;
+$buff: #d5996eff;
+$cool-gray: #8d82a5ff;
+$cool-gray-2: #9b8fb6ff;
+$cinereous: #816f6fff;
+$ultra-violet: #6d5f92ff;
+$text: #413958;
+
+.container {
+  background-color: $thistle;
+  border-radius: 10px;
+
+  h4 {
+    color: $text;
+    letter-spacing: 1px;
+  }
+
+  form {
+    .form-group {
+      padding-block: 0.5rem;
+
+      label {
+        color: $text;
+        letter-spacing: 1px;
+        font-size: 15px;
+        margin-bottom: 0.5rem;
+      }
+
+      input {
+        background-color: $ghost-white;
+        border: none;
+        padding: 0.5rem 1rem;
+        color: $text;
+        border-radius: 4px;
+        font-size: 12px;
+        border-radius: 0;
+        border-left: 3px solid $buff;
+      }
+
+      textarea {
+        background-color: $ghost-white;
+        border: none;
+        padding: 0.5rem 1rem;
+        color: $text;
+        border-radius: 4px;
+        font-size: 12px;
+        border-radius: 0;
+        border-left: 3px solid $buff;
+      }
+    }
+
+    button {
+      background-color: $ultra-violet;
+      color: $white;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      border-radius: 0;
+
+      &:hover {
+        background-color: $cool-gray-2;
+        color: $white;
+      }
+    }
+  }
+}

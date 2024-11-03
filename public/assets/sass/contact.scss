@@ -1,0 +1,73 @@
+$white: #ffffffff;
+$jet: #35323aff;
+$ghost-white: #f4f1f6ff;
+$sunset: #805a3f;
+$thistle: #d5ccdfff;
+$buff: #d5996eff;
+$cool-gray: #8d82a5ff;
+$cool-gray-2: #9b8fb6ff;
+$cinereous: #816f6fff;
+$ultra-violet: #6d5f92ff;
+$text: #413958;
+
+.contact {
+  overflow: hidden;
+  background-color: $white;
+
+  .contact-info {
+    a {
+      text-decoration: none;
+      color: $text;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+      transition: all 0.3s ease;
+      padding-block: 0.5rem;
+
+      &:hover {
+        color: $white;
+      }
+
+      i {
+        margin-right: 10px;
+        font-size: 20px;
+      }
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 100%;
+        background-color: $sunset;
+        transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        border-radius: 5px;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 100%;
+        background-color: rgba(109, 95, 146, 0.5);
+        transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+        transform: translate(-50%, -50%);
+        z-index: -2;
+        border-radius: 5px;
+      }
+
+      &:hover:before,
+      &:hover:after {
+        width: 100%;
+      }
+    }
+  }
+}

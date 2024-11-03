@@ -1,0 +1,21 @@
+$white: #ffffffff;
+$jet: #35323aff;
+$ghost-white: #f4f1f6ff;
+$sunset: #fbd69cff;
+$thistle: #d5ccdfff;
+$buff: #d5996eff;
+$cool-gray: #8d82a5ff;
+$cool-gray-2: #9b8fb6ff;
+$cinereous: #816f6fff;
+$ultra-violet: #6d5f92ff;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui;
+}
+
+body {
+  overflow-x: hidden;
+}

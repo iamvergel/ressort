@@ -1,0 +1,106 @@
+$ghost-white: #f4f1f6ff;
+$sunset: #fbd69cff;
+$thistle: #d5ccdfff;
+$buff: #d5996eff;
+$cool-gray: #8d82a5ff;
+$cool-gray-2: #9b8fb6ff;
+$cinereous: #816f6fff;
+$ultra-violet: #6d5f92ff;
+$text: #413958;
+$oxford-blue: #011f37ff;
+$icterine: #f8f269ff;
+$icterine1: #f8f169a1;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui;
+}
+
+.amacan {
+  .amacanpicturecontainer {
+    .amacanpicture {
+      width: 250px;
+      height: 250px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      animation: image 15s infinite alternate-reverse;
+      border: 1px solid #fff;
+      transition: all 0.3s ease;
+
+      @keyframes image {
+        0% {
+          background-image: url(/public/assets/images/ressortimages/amacan01.jpg);
+        }
+        30% {
+          background-image: url(/public/assets/images/ressortimages/amacan02.jpg);
+        }
+        60% {
+          background-image: url(/public/assets/images/ressortimages/amacan03.jpg);
+        }
+        80% {
+          background-image: url(/public/assets/images/ressortimages/amacan04.jpg);
+        }
+        100% {
+          background-image: url(/public/assets/images/ressortimages/amacan05.jpg);
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    button {
+      width: 250px;
+      background-color: $oxford-blue;
+      color: #fff;
+      font-size: 13px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #003866;
+      }
+    }
+  }
+
+  .description {
+    color: $oxford-blue;
+  } 
+}
+
+.vrhousepicturecontainer {
+  .vrhousepicture {
+    width: 250px;
+    height: 250px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: image2 15s infinite alternate-reverse;
+    border: 1px solid #00000057;
+
+    @keyframes image2 {
+      0% {
+        background-image: url(/public/assets/images/ressortimages/vr01.jpg);
+      }
+      30% {
+        background-image: url(/public/assets/images/ressortimages/vr02.jpg);
+      }
+      60% {
+        background-image: url(/public/assets/images/ressortimages/vr03.jpg);
+      }
+      80% {
+        background-image: url(/public/assets/images/ressortimages/vr04.jpg);
+      }
+      100% {
+        background-image: url(/public/assets/images/cover1.jpg);
+      }
+    }
+  }
+
+  button {
+    width: 250px;
+  }
+}

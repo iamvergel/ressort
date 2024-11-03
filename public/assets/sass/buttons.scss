@@ -1,0 +1,247 @@
+$white: #ffffffff;
+$jet: #35323aff;
+$ghost-white: #f4f1f6ff;
+$sunset: #fbd69cff;
+$thistle: #d5ccdfff;
+$buff: #d5996eff;
+$cool-gray: #8d82a5ff;
+$cool-gray-2: #9b8fb6ff;
+$cinereous: #816f6fff;
+$ultra-violet: #6d5f92ff;
+
+.bookAppointment {
+  width: 180px;
+  height: 180px;
+  position: fixed;
+  bottom: 10px;
+  right: 50px;
+  background: url(../images/logo/villaresortlogo.png);
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 120px 120px;
+  transition: all 0.3s ease;
+  animation: scale 2s 0.3s alternate-reverse infinite;
+
+  @keyframes scale {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  button {
+    position: relative;
+    height: 30px;
+    font-size: 15px;
+    color: $ultra-violet;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 5px;
+      background-color: $buff;
+      transition: width 0.3s ease;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) scaleX(1);
+      transform-origin: center;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) scaleX(1);
+      transform-origin: center;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: $white;
+      color: $buff;
+    }
+  }
+}
+
+.chatBot {
+  width: 150px;
+  height: 150px;
+  position: fixed;
+  bottom: 10px;
+  right: 50px;
+  background: url(../images/logo/villaresortlogo.png);
+  object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 120px 120px;
+  transition: all 0.3s ease;
+  animation: scale 2s alternate-reverse infinite;
+
+  @keyframes scale {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  button {
+    position: relative;
+    height: 30px;
+    font-size: 15px;
+    color: $ultra-violet;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 0;
+      height: 5px;
+      background-color: $buff;
+      transition: width 0.3s ease;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) scaleX(1);
+      transform-origin: center;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) scaleX(1);
+      transform-origin: center;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.checkAvailability {
+  width: 350px;
+  height: 50px;
+
+  button {
+    position: relative;
+    height: 50px;
+    font-size: 17px;
+    text-indent: 1rem;
+    background-color: $ultra-violet;
+    color: $white;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.3s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: $buff;
+      transition: width 0.3s ease;
+      z-index: 0;
+      mix-blend-mode: overlay;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}
+
+.amacanButton {
+  width: 350px;
+  height: 40px;
+  margin-left: 1rem;
+
+  button {
+    position: relative;
+    height: 40px;
+    font-size: 17px;
+    background-color: $ultra-violet;
+    color: $white;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.3s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: $buff;
+      transition: width 0.3s ease;
+      z-index: 0;
+      mix-blend-mode: overlay;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}
+
+.vrhouseButton {
+  width: 350px;
+  height: 40px;
+  margin-left: 1rem;
+
+  button {
+    position: relative;
+    height: 40px;
+    font-size: 17px;
+    background-color: $ultra-violet;
+    color: $white;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.3s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: $buff;
+      transition: width 0.3s ease;
+      z-index: 0;
+      mix-blend-mode: overlay;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+  }
+}
