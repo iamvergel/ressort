@@ -17,32 +17,51 @@ $text: #413958;
   .ressort {
     background-color: transparent;
     position: absolute;
-    top: 75%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
 
+    @media (min-width: 992px) {
+      top: 75%;
+    }
+
     h3 {
-      font-size: 40px;
+      font-size: 20px;
       letter-spacing: 3px;
+
+      @media (min-width: 992px) {
+        font-size: 40px;
+      }
     }
 
     h1{
       border: none;
-      font-size: 70px;
+      font-size: 50px;
       letter-spacing: 10px;
       line-height: 1;
+
+      @media (min-width: 992px) {
+        font-size: 80px;
+      }
     }
 
     p {
       letter-spacing: 3px;
-      font-size: 20px;
+      font-size: 12px;
+
+      @media (min-width: 992px) {
+        font-size: 20px;
+      }
     }
   }
 
   .col-box {
-    height: 700px;
+    height: 200px;
     transition: all 0.3s linear;
-    height: 700px;
+
+    @media (min-width: 992px) {
+      height: 700px;
+    }
 
     img {
       width: 100%;

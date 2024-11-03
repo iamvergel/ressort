@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="public/assets/css/navigation.css">
 
-<nav class="navbar navbar-expand-lg bg-lg-dark fixed-top" id="navHead">
+<nav class="navbar navbar-expand-lg fixed-top" id="navHead">
   <div class="container-fluid">
     <button class="navbar-toggler fs-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
       aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -17,20 +17,21 @@
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="#contact">Contact Us</a></li>
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/Feedback">Feedback</a></li>
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/Promo">Promo/s</a></li>
+        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/Promo">Signin</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <!-- Offcanvas Menu -->
-<div class="d-block d-lg-none text-dark fs-5">
+<div class="d-block d-lg-none text-dark fs-5 bg-light">
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-    <div class="offcanvas-header d-flex justify-content-between">
+    <div class="offcanvas-header d-flex justify-content-between bg-light text-dark">
       <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
       <button type="button" class="bg-transparent border-0 text-reset text-light fs-1" data-bs-dismiss="offcanvas"
         aria-label="Close"><i class="bi bi-x"></i></button>
     </div>
-    <div class="offcanvas-body">
+    <div class="offcanvas-body bg-light text-dark">
       <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/room">Room</a></li>
@@ -54,16 +55,14 @@
       if (window.scrollY > 0) {
         navBar.style.height = "80px";
         navBar.style.backgroundColor = "#0000006e";
-        navLinks.forEach(link => link.style.color = "#fff");
       } else {
         navBar.style.height = "100px";
         navBar.style.backgroundColor = "transparent";
-        navLinks.forEach(link => link.style.color = "#fff");
       }
     } else {
         navBar.style.height = "80px";
         navBar.style.backgroundColor = "#011F37ff";
-        navLinks.forEach(link => link.style.color = "#fff");
+        navLinks.forEach(link => link.style.color = "#000");
     }
   }
 

@@ -48,11 +48,11 @@
                 cols.forEach(otherCol => {
                     // Expand the hovered image's column and shrink others
                     if (otherCol === col) {
-                        otherCol.classList.remove('col-2');
-                        otherCol.classList.add('col-7');
+                        otherCol.classList.remove('col-lg-2');
+                        otherCol.classList.add('col-lg-7');
                     } else {
-                        otherCol.classList.remove('col-2');
-                        otherCol.classList.add('col-1');
+                        otherCol.classList.remove('col-lg-2');
+                        otherCol.classList.add('col-lg-1');
                     }
                 });
             });
@@ -61,8 +61,8 @@
             img.addEventListener('mouseleave', () => {
                 cols.forEach(otherCol => {
                     // Reset all columns back to original size
-                    otherCol.classList.remove('col-7', 'col-1');
-                    otherCol.classList.add('col-2');
+                    otherCol.classList.remove('col-lg-7', 'lg-col-1');
+                    otherCol.classList.add('col-lg-2');
                 });
             });
         });
