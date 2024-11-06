@@ -10,6 +10,10 @@ if ($uri === '') {
 
     require_once 'app/views/services.php';
 
+}elseif ($uri === '/amenities') {
+
+    require_once 'app/views/amenities.php';
+
 } elseif ($uri === '/AboutUs') {
 
     require_once 'app/views/aboutus.php';

@@ -68,9 +68,9 @@ unset($_SESSION['alert']); // Unset alert after using it
         <!-- Content -->
         <div
             class="p-2 lg-p-5 d-flex justify-content-center position-absolute w-100 h-100 align-items-center bg-dark bg-opacity-75 z-2">
-            <div class="container mt-5">
-                <div class="row justify-content-center mt-5">
-                    <div class="col-12 col-lg-6 col-xl-4 p-2 shadow-lg bg-light rounded-4 my-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-lg-6 col-xl-4 p-2 shadow-lg bg-light rounded-4 mt-5">
                         <img src="public/assets/images/logo/villaresortlogo.jpg" alt="logo" height="150px" class="m-4 ">
                         <form id="loginForm" class="p-5 px-4">
                             <div class="form-group mt-0">

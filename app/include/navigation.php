@@ -11,12 +11,12 @@
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item mx-2 d-none"><a class="nav-link fw-normal text-uppercase" href="/room">Room</a></li>
-        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/AboutUs">Amenities</a></li>
+        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/amenities">Amenities</a></li>
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/AboutUs">About Us</a></li>
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/Services">Services</a></li>
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="#contact">Contact Us</a></li>
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/Promo">Promo/s</a></li>
-        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/signin">Signin</a></li>
+        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/signin">Sign in</a></li>
       </ul>
     </div>
   </div>
