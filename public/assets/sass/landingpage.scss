@@ -63,15 +63,79 @@ $text: #413958;
       height: 700px;
     }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(50%) contrast(50%);
-      transition: all 0.3s linear;
+    .menu1{
+      position: relative;
+      
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/vr/photo_2024-10-29_15-33-07.jpg?raw=true");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: 1;
+        z-index: -1;
+      }
+    }
 
-      &:hover {
-        filter: brightness(80%) contrast(100%);
+    .menu2{
+      position: relative;
+      
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-35-26.jpg?raw=true");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: 1;
+        z-index: -1;
+      }
+    }
+
+    .menu3{
+      position: relative;
+      
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-36-45.jpg?raw=true");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: 1;
+        z-index: -1;
+      }
+    }
+
+    .menu4{
+      position: relative;
+      
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/vr/photo_2024-10-29_15-40-34.jpg?raw=true");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: 1;
+        z-index: -1;
       }
     }
   }

@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Allow POST requests to loginController.php
+    RewriteCond %{REQUEST_METHOD} POST
+    RewriteRule ^app/controllers/loginController.php$ - [L]
+
+    # Allow POST requests to signupController.php
+    RewriteCond %{REQUEST_METHOD} POST
+    RewriteRule ^app/controllers/signupController.php$ - [L]
+</IfModule>

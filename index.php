@@ -18,9 +18,13 @@ if ($uri === '') {
 
     require_once 'app/views/Feedback.php';
 
-} elseif ($uri === '/admin') {
+} elseif ($uri === '/signin') {
 
-    require_once 'app/views/admin/login.php';
+    require_once 'app/views/login.php';
+
+}  elseif ($uri === '/signup') {
+
+    require_once 'app/views/signup.php';
 
 } elseif ($uri === '/adminInquiries') {
 

@@ -10,14 +10,13 @@
       <ul class="navbar-nav mx-auto mt-3 mt-lg-0">
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" aria-current="page" href="/">Home</a>
         </li>
-        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/room">Room</a></li>
+        <li class="nav-item mx-2 d-none"><a class="nav-link fw-normal text-uppercase" href="/room">Room</a></li>
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/AboutUs">Amenities</a></li>
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/AboutUs">About Us</a></li>
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/Services">Services</a></li>
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="#contact">Contact Us</a></li>
-        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/Feedback">Feedback</a></li>
         <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/Promo">Promo/s</a></li>
-        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/Promo">Signin</a></li>
+        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/signin">Signin</a></li>
       </ul>
     </div>
   </div>
@@ -34,13 +33,13 @@
     <div class="offcanvas-body bg-light text-dark">
       <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/room">Room</a></li>
+        <li class="nav-item d-none"><a class="nav-link" href="/room">Room</a></li>
         <li class="nav-item"><a class="nav-link" href="/AboutUs">Amenities</a></li>
         <li class="nav-item"><a class="nav-link" href="/AboutUs">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="/Services">Services</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="/Feedback">Feedback</a></li>
         <li class="nav-item"><a class="nav-link" href="/Promo">Promo/s</a></li>
+        <li class="nav-item"><a class="nav-link" href="/signin">Signin</a></li>
       </ul>
     </div>
   </div>

@@ -41,18 +41,29 @@
         const cols = document.querySelectorAll('.col-box');
 
         cols.forEach(col => {
-            const img = col.querySelector('img');
+            const img = col.querySelector('div'); 
+            const button = col.querySelector('.content'); 
+            const mask = col.querySelector('.mask'); 
 
             // Add mouseenter event listener to images
             img.addEventListener('mouseenter', () => {
                 cols.forEach(otherCol => {
-                    // Expand the hovered image's column and shrink others
                     if (otherCol === col) {
-                        otherCol.classList.remove('col-lg-2');
-                        otherCol.classList.add('col-lg-7');
+                        // Expand the column that is hovered over
+                        otherCol.classList.remove('col-lg-3');
+                        otherCol.classList.add('col-lg-6');
+                        // Show the button when the column is expanded
+                        button.classList.remove('d-none');
+                        mask.classList.remove('opacity-75');
+                        mask.classList.add('opacity-50');
                     } else {
-                        otherCol.classList.remove('col-lg-2');
-                        otherCol.classList.add('col-lg-1');
+                        // Shrink the other columns
+                        otherCol.classList.remove('col-lg-3');
+                        otherCol.classList.add('col-lg-2');
+                        // Hide the button in other columns
+                        otherCol.querySelector('.content').classList.add('d-none');
+                        otherCol.querySelector('.mask').classList.remove('opacity-50');
+                        otherCol.querySelector('.mask').classList.add('opacity-75');
                     }
                 });
             });
@@ -61,8 +72,11 @@
             img.addEventListener('mouseleave', () => {
                 cols.forEach(otherCol => {
                     // Reset all columns back to original size
-                    otherCol.classList.remove('col-lg-7', 'lg-col-1');
-                    otherCol.classList.add('col-lg-2');
+                    otherCol.classList.remove('col-lg-6', 'col-lg-2');
+                    otherCol.classList.add('col-lg-3');
+                    // Hide the button in all columns when mouse leaves
+                    otherCol.querySelector('.content').classList.add('d-none');
+                    otherCol.querySelector('.mask').classList.add('opacity-75');
                 });
             });
         });
