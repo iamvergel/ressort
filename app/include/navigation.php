@@ -14,7 +14,7 @@
         <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="/AboutUs">About Us</a></li>
         <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="/Services">Services</a></li>
         <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="#contact">Contact Us</a></li>
-        <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="/Promo">Promo/s</a></li>
+        <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="/promo">Promo/s</a></li>
         <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="/signin">Sign in</a></li>
       </ul>
     </div>

@@ -71,7 +71,7 @@ unset($_SESSION['alert']); // Unset alert after using it
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-lg-6 col-xl-4 p-2 shadow-lg bg-light rounded-4 mt-5">
-                        <img src="public/assets/images/logo/villaresortlogo.jpg" alt="logo" height="150px" class="m-4 ">
+                        <img src="public/assets/images/logo/villaresortlogo.png" alt="logo" height="150px" class="m-4 ">
                         <form id="loginForm" class="p-5 px-4">
                             <div class="form-group mt-0">
                                 <label for="username">Username:</label>

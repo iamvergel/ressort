@@ -11,46 +11,45 @@ $ultra-violet: #6d5f92ff;
 $text: #413958;
 $oxford-blue: #011F37ff;
 $icterine: #F8F269ff;
-$icterine1:#f8f169a1;
+$icterine1: #f8f169a1;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", system-ui;
-  }
-  
-  body {
-    overflow-x: hidden;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui;
+}
 
-  section {
-    height: 50vh;
-    width: 100vw;
-    background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/ameneties/photo_2024-10-29_15-31-59.jpg?raw=true");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+body {
+  overflow-x: hidden;
+}
 
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #0000008a;
-      z-index: -1;
-    }
-  }
+section {
+  height: 50vh;
+  width: 100vw;
+  background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/ameneties/photo_2024-10-29_15-31-59.jpg?raw=true");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 
-  .mainImage {
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    object-fit: cover;
-
-    @media (min-width: 768px) {
-      width: 100%;
-    }
+    background-color: #0000008a;
+    z-index: -1;
   }
-  
+}
+
+.mainImage {
+  height: 100%;
+  object-fit: cover;
+
+  @media (min-width: 768px) {
+    width: 100%;
+  }
+}

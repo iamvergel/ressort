@@ -18,9 +18,9 @@ if ($uri === '') {
 
     require_once 'app/views/aboutus.php';
 
-} elseif ($uri === '/Feedback') {
+} elseif ($uri === '/promo') {
 
-    require_once 'app/views/Feedback.php';
+    require_once 'app/views/promo.php';
 
 } elseif ($uri === '/signin') {
 

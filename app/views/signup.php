@@ -66,7 +66,7 @@ if (isset($_SESSION['user'])) {
                 <div class="row justify-content-center">
                     <button onclick="window.location.href = '/signin'">back</button>
                     <div class="col-12 col-lg-6 col-xl-10 p-2 shadow-lg bg-light rounded-4 my-5 d-flex justify-content-center">
-                        <img src="public/assets/images/logo/villaresortlogo.jpg" alt="logo" height="150px" class="m-4 ">
+                        <img src="public/assets/images/logo/villaresortlogo.png" alt="logo" height="150px" class="m-4 ">
                         <form id="signupForm" class="p-5 w-50">
                             <div class="form-group mt-2">
                                 <label for="email">Email:</label>

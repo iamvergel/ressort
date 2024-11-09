@@ -222,13 +222,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="map my-5 px-2 w-100" data-aos="fade-right" data-aos-duration="500">
-            <iframe width="100%" height="700" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                src="https://maps.google.com/maps?q=Villa%20Reyes%20Family%20Private%20Resort%2C%20Barangay%20Proper%202%2C%20Rodriguez%2C%20Rizal%2C%20Philippines&amp;output=embed">
-                <a href="https://www.gps.ie/"> View on Map</a>
-            </iframe>
-        </div>
     </main>
 
     <!-- Contact -->
