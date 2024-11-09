@@ -1,22 +1,21 @@
 <link rel="stylesheet" href="public/assets/css/navigation.css">
 
-<nav class="navbar navbar-expand-lg fixed-top" id="navHead">
+<nav class="navbar navbar-expand-lg fixed-top" data-aos="fade-down" data-aos-duration="1000" id="navHead">
   <div class="container-fluid">
     <button class="navbar-toggler fs-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      aria-controls="offcanvasNavbar" aria-label="Toggle navigation" data-aos="fade-left" data-aos-duration="1000">
       <i class="bi bi-list text-light"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto mt-3 mt-lg-0">
-        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item mx-2 d-none"><a class="nav-link fw-normal text-uppercase" href="/room">Room</a></li>
-        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/amenities">Amenities</a></li>
-        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/AboutUs">About Us</a></li>
-        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/Services">Services</a></li>
-        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="#contact">Contact Us</a></li>
-        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/Promo">Promo/s</a></li>
-        <li class="nav-item mx-2"><a class="nav-link fw-normal text-uppercase" href="/signin">Sign in</a></li>
+        <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" aria-current="page" href="/">Home</a></li>
+        <li class="nav-item mx-2 d-none" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="/room">Room</a></li>
+        <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="/amenities">Amenities</a></li>
+        <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="/AboutUs">About Us</a></li>
+        <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="/Services">Services</a></li>
+        <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="#contact">Contact Us</a></li>
+        <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="/Promo">Promo/s</a></li>
+        <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a class="nav-link fw-normal text-uppercase" href="/signin">Sign in</a></li>
       </ul>
     </div>
   </div>
@@ -32,18 +31,19 @@
     </div>
     <div class="offcanvas-body bg-light text-dark">
       <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-        <li class="nav-item d-none"><a class="nav-link" href="/room">Room</a></li>
-        <li class="nav-item"><a class="nav-link" href="/AboutUs">Amenities</a></li>
-        <li class="nav-item"><a class="nav-link" href="/AboutUs">About Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="/Services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-        <li class="nav-item"><a class="nav-link" href="/Promo">Promo/s</a></li>
-        <li class="nav-item"><a class="nav-link" href="/signin">Signin</a></li>
+        <li class="nav-item" data-aos="fade-left" data-aos-duration="1000"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item d-none" data-aos="fade-left" data-aos-duration="1000"><a class="nav-link" href="/room">Room</a></li>
+        <li class="nav-item" data-aos="fade-left" data-aos-duration="1000"><a class="nav-link" href="/AboutUs">Amenities</a></li>
+        <li class="nav-item" data-aos="fade-left" data-aos-duration="1000"><a class="nav-link" href="/AboutUs">About Us</a></li>
+        <li class="nav-item" data-aos="fade-left" data-aos-duration="1000"><a class="nav-link" href="/Services">Services</a></li>
+        <li class="nav-item" data-aos="fade-left" data-aos-duration="1000"><a class="nav-link" href="#contact">Contact Us</a></li>
+        <li class="nav-item" data-aos="fade-left" data-aos-duration="1000"><a class="nav-link" href="/Promo">Promo/s</a></li>
+        <li class="nav-item" data-aos="fade-left" data-aos-duration="1000"><a class="nav-link" href="/signin">Signin</a></li>
       </ul>
     </div>
   </div>
 </div>
+
 
 <script>
   let navBar = document.getElementById("navHead");

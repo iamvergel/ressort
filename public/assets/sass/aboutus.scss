@@ -44,4 +44,13 @@ $icterine1:#f8f169a1;
       z-index: 1;
     }
   }
+
+  .mainImage {
+    height: 100%;
+    object-fit: cover;
+
+    @media (min-width: 768px) {
+      width: 100%;
+    }
+  }
   

@@ -5,13 +5,11 @@
 .landingpage .ressort {
   background-color: transparent;
   position: absolute;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 40%;
 }
 @media (min-width: 992px) {
   .landingpage .ressort {
-    top: 75%;
+    top: 60%;
   }
 }
 .landingpage .ressort h3 {

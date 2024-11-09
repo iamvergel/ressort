@@ -28,3 +28,14 @@ section:before {
   background-color: rgba(0, 0, 0, 0.5411764706);
   z-index: 1;
 }
+
+.mainImage {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+@media (min-width: 768px) {
+  .mainImage {
+    width: 100%;
+  }
+}
