@@ -86,6 +86,10 @@ if ($uri === '') {
 
     require_once(__DIR__ . '/app/views/vrhousenprocessbooking.php');
     
+} elseif ($uri === '/confirm') {
+
+    require_once(__DIR__ . '/app/views/confirm.php');
+    
 } else {
     http_response_code(404);
     echo "404 Not Found";

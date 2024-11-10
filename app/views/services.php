@@ -2,13 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Villa Reyes Resort</title>
+    <title>Villa Reyes Ressort</title>
     <link rel="shortcut icon" href="public/assets/images/logo/villaresortlogo.png" type="image/x-icon">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css">
@@ -28,7 +27,7 @@
     <!-- Navigation Bar -->
     <?php include 'app/include/navigation.php'; ?>
 
-    <div class="services">
+    <div class="services overflow-hidden">
         <!-- Amacan Section -->
         <div class="amacan">
             <div class="header w-100 d-flex justify-content-center align-items-center" data-aos="fade-up">

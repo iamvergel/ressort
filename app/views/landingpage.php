@@ -105,7 +105,7 @@
   </div>
 
   <!-- Welcome Text with AOS animation -->
-  <div class="container-fluid ressort d-block" data-aos="fade-up" data-aos-duration="1500">
+  <div class="container-fluid ressort d-block " data-aos="fade-up" data-aos-duration="1500">
     <div class="text-justify text-lg-center text-light z-2">
       <h3 class="fw-normal">Welcome to</h3>
       <h1 class="fw-bold"><span>Villa Reyes Family </span><br /> Private Resort</h1>
@@ -114,7 +114,7 @@
   </div>
 
   <!-- Col Boxes with AOS animations -->
-  <div class="container-fluid px-2 px-lg-5">
+  <div class="container-fluid px-2 px-lg-5 overflow-hidden">
     <div class="row p-0 p-lg-5">
       <div class="col-12 col-lg-3 p-2 col-box" data-aos="fade-right" data-aos-duration="500">
         <div class="menu1 h-100 w-100 d-flex justify-content-center align-items-end px-5">

@@ -33,11 +33,20 @@ class LoginController {
 
                 // Check if user exists and password matches
                 if ($user) {
+                    // Check if the user is verified
+                    if ($user['verified'] == 0) {
+                        // If not verified, send error message
+                        http_response_code(403); // Forbidden
+                        echo json_encode(['message' => 'Account not verified. Please check your email for the verification code.']);
+                        exit();
+                    }
+
                     // Regenerate session ID to prevent session fixation attacks
                     session_regenerate_id(true);
 
                     // Store user info in session
                     $_SESSION['user'] = $user['username'];
+                    $_SESSION['email'] = $user['email'];
 
                     // Send JSON response for successful login
                     echo json_encode(['message' => 'Login successful']);

@@ -16,4 +16,11 @@ class User {
         $stmt->execute([$username, $email]);
         return $stmt->fetch(); // Return the user if found, else return false
     }
+
+    public function findByUsername($username)
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM users_account WHERE username = ?");
+        $stmt->execute([$username]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

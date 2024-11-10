@@ -1,1 +1,211 @@
-.bookAppointment{width:180px;height:180px;position:fixed;bottom:10px;right:50px;background:url(../images/logo/villaresortlogo.png);-o-object-fit:cover;object-fit:cover;background-position:center;background-repeat:no-repeat;background-size:120px 120px;transition:all .3s ease;animation:scale 2s .3s alternate-reverse infinite}@keyframes scale{from{transform:scale(1)}to{transform:scale(1.1)}}.bookAppointment button{position:relative;height:30px;font-size:15px;color:#6d5f92;overflow:hidden;transition:all .3s ease}.bookAppointment button::before,.bookAppointment button::after{content:"";position:absolute;top:100%;left:50%;transform:translate(-50%, -50%);width:0;height:5px;background-color:#d5996e;transition:width .3s ease}.bookAppointment button::before{transform:translate(-50%, -50%) scaleX(1);transform-origin:center}.bookAppointment button::after{transform:translate(-50%, -50%) scaleX(1);transform-origin:center}.bookAppointment button:hover::before,.bookAppointment button:hover::after{width:100%}.bookAppointment button:hover{transform:scale(1.1);background-color:#fff;color:#d5996e}.chatBot{width:150px;height:150px;position:fixed;bottom:10px;right:50px;background:url(../images/logo/villaresortlogo.png);-o-object-fit:cover;object-fit:cover;background-position:center;background-repeat:no-repeat;background-size:120px 120px;transition:all .3s ease;animation:scale 2s alternate-reverse infinite}@keyframes scale{from{transform:scale(1)}to{transform:scale(1.1)}}.chatBot button{position:relative;height:30px;font-size:15px;color:#6d5f92;overflow:hidden;transition:all .3s ease}.chatBot button::before,.chatBot button::after{content:"";position:absolute;top:100%;left:50%;transform:translate(-50%, -50%);width:0;height:5px;background-color:#d5996e;transition:width .3s ease}.chatBot button::before{transform:translate(-50%, -50%) scaleX(1);transform-origin:center}.chatBot button::after{transform:translate(-50%, -50%) scaleX(1);transform-origin:center}.chatBot button:hover::before,.chatBot button:hover::after{width:100%}.chatBot button:hover{transform:scale(1.1)}.checkAvailability{width:350px;height:50px}.checkAvailability button{position:relative;height:50px;font-size:17px;text-indent:1rem;background-color:#6d5f92;color:#fff;border:none;cursor:pointer;overflow:hidden;transition:color .3s ease}.checkAvailability button::before{content:"";position:absolute;top:0;left:0;width:0;height:100%;background-color:#d5996e;transition:width .3s ease;z-index:0;mix-blend-mode:overlay}.checkAvailability button:hover::before{width:100%}.amacanButton{width:350px;height:40px;margin-left:1rem}.amacanButton button{position:relative;height:40px;font-size:17px;background-color:#6d5f92;color:#fff;border:none;cursor:pointer;overflow:hidden;transition:color .3s ease}.amacanButton button::before{content:"";position:absolute;top:0;left:0;width:0;height:100%;background-color:#d5996e;transition:width .3s ease;z-index:0;mix-blend-mode:overlay}.amacanButton button:hover::before{width:100%}.vrhouseButton{width:350px;height:40px;margin-left:1rem}.vrhouseButton button{position:relative;height:40px;font-size:17px;background-color:#6d5f92;color:#fff;border:none;cursor:pointer;overflow:hidden;transition:color .3s ease}.vrhouseButton button::before{content:"";position:absolute;top:0;left:0;width:0;height:100%;background-color:#d5996e;transition:width .3s ease;z-index:0;mix-blend-mode:overlay}.vrhouseButton button:hover::before{width:100%}/*# sourceMappingURL=buttons.css.map */
+.bookAppointment {
+  width: 180px;
+  height: 180px;
+  position: fixed;
+  bottom: 10px;
+  right: 50px;
+  background: url(../images/logo/villaresortlogo.png);
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 120px 120px;
+  transition: all 0.3s ease;
+  animation: scale 2s 0.3s alternate-reverse infinite;
+}
+@keyframes scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+.bookAppointment button {
+  position: relative;
+  height: 30px;
+  font-size: 15px;
+  color: #6d5f92;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.bookAppointment button::before, .bookAppointment button::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 5px;
+  background-color: #d5996e;
+  transition: width 0.3s ease;
+}
+.bookAppointment button::before {
+  transform: translate(-50%, -50%) scaleX(1);
+  transform-origin: center;
+}
+.bookAppointment button::after {
+  transform: translate(-50%, -50%) scaleX(1);
+  transform-origin: center;
+}
+.bookAppointment button:hover::before, .bookAppointment button:hover::after {
+  width: 100%;
+}
+.bookAppointment button:hover {
+  transform: scale(1.1);
+  background-color: white;
+  color: #d5996e;
+}
+
+.chatBot {
+  width: 150px;
+  height: 150px;
+  position: fixed;
+  bottom: 10px;
+  right: 50px;
+  background: url(../images/logo/villaresortlogo.png);
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 120px 120px;
+  transition: all 0.3s ease;
+  animation: scale 2s alternate-reverse infinite;
+}
+@keyframes scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+.chatBot button {
+  position: relative;
+  height: 30px;
+  font-size: 15px;
+  color: #6d5f92;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.chatBot button::before, .chatBot button::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 5px;
+  background-color: #d5996e;
+  transition: width 0.3s ease;
+}
+.chatBot button::before {
+  transform: translate(-50%, -50%) scaleX(1);
+  transform-origin: center;
+}
+.chatBot button::after {
+  transform: translate(-50%, -50%) scaleX(1);
+  transform-origin: center;
+}
+.chatBot button:hover::before, .chatBot button:hover::after {
+  width: 100%;
+}
+.chatBot button:hover {
+  transform: scale(1.1);
+}
+
+.checkAvailability {
+  width: 350px;
+  height: 50px;
+}
+.checkAvailability button {
+  position: relative;
+  height: 50px;
+  font-size: 17px;
+  text-indent: 1rem;
+  background-color: #6d5f92;
+  color: white;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+.checkAvailability button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #d5996e;
+  transition: width 0.3s ease;
+  z-index: 0;
+  mix-blend-mode: overlay;
+}
+.checkAvailability button:hover::before {
+  width: 100%;
+}
+
+.amacanButton {
+  width: 350px;
+  height: 40px;
+  margin-left: 1rem;
+}
+.amacanButton button {
+  position: relative;
+  height: 40px;
+  font-size: 17px;
+  background-color: #6d5f92;
+  color: white;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+.amacanButton button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #d5996e;
+  transition: width 0.3s ease;
+  z-index: 0;
+  mix-blend-mode: overlay;
+}
+.amacanButton button:hover::before {
+  width: 100%;
+}
+
+.vrhouseButton {
+  width: 350px;
+  height: 40px;
+  margin-left: 1rem;
+}
+.vrhouseButton button {
+  position: relative;
+  height: 40px;
+  font-size: 17px;
+  background-color: #6d5f92;
+  color: white;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+.vrhouseButton button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #d5996e;
+  transition: width 0.3s ease;
+  z-index: 0;
+  mix-blend-mode: overlay;
+}
+.vrhouseButton button:hover::before {
+  width: 100%;
+}

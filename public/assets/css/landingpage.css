@@ -1,1 +1,120 @@
-.landingpage{cursor:default;display:block}.landingpage .ressort{background-color:rgba(0,0,0,0);position:absolute;top:40%}@media(min-width: 992px){.landingpage .ressort{top:60%}}.landingpage .ressort h3{font-size:20px;letter-spacing:3px}@media(min-width: 992px){.landingpage .ressort h3{font-size:40px}}.landingpage .ressort h1{border:none;font-size:50px;letter-spacing:10px;line-height:1}@media(min-width: 992px){.landingpage .ressort h1{font-size:80px}}.landingpage .ressort p{letter-spacing:3px;font-size:12px}@media(min-width: 992px){.landingpage .ressort p{font-size:20px}}.landingpage .col-box{height:200px;transition:all .3s linear}@media(min-width: 992px){.landingpage .col-box{height:700px}}.landingpage .col-box .menu1{position:relative}.landingpage .col-box .menu1::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-image:url("https://github.com/Manjares360/villareyesimage/blob/main/vr/photo_2024-10-29_15-33-07.jpg?raw=true");background-repeat:no-repeat;background-size:cover;background-position:center;opacity:1;z-index:-1}.landingpage .col-box .menu2{position:relative}.landingpage .col-box .menu2::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-image:url("https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-35-26.jpg?raw=true");background-repeat:no-repeat;background-size:cover;background-position:center;opacity:1;z-index:-1}.landingpage .col-box .menu3{position:relative}.landingpage .col-box .menu3::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-image:url("https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-36-45.jpg?raw=true");background-repeat:no-repeat;background-size:cover;background-position:center;opacity:1;z-index:-1}.landingpage .col-box .menu4{position:relative}.landingpage .col-box .menu4::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-image:url("https://github.com/Manjares360/villareyesimage/blob/main/vr/photo_2024-10-29_15-40-34.jpg?raw=true");background-repeat:no-repeat;background-size:cover;background-position:center;opacity:1;z-index:-1}/*# sourceMappingURL=landingpage.css.map */
+.landingpage {
+  cursor: default;
+  display: block;
+}
+.landingpage .ressort {
+  background-color: transparent;
+  position: absolute;
+  top: 40%;
+}
+@media (min-width: 992px) {
+  .landingpage .ressort {
+    top: 60%;
+  }
+}
+.landingpage .ressort h3 {
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+@media (min-width: 992px) {
+  .landingpage .ressort h3 {
+    font-size: 40px;
+  }
+}
+.landingpage .ressort h1 {
+  border: none;
+  font-size: 50px;
+  letter-spacing: 10px;
+  line-height: 1;
+}
+@media (min-width: 992px) {
+  .landingpage .ressort h1 {
+    font-size: 80px;
+  }
+}
+.landingpage .ressort p {
+  letter-spacing: 3px;
+  font-size: 12px;
+}
+@media (min-width: 992px) {
+  .landingpage .ressort p {
+    font-size: 20px;
+  }
+}
+.landingpage .col-box {
+  height: 200px;
+  transition: all 0.3s linear;
+}
+@media (min-width: 992px) {
+  .landingpage .col-box {
+    height: 700px;
+  }
+}
+.landingpage .col-box .menu1 {
+  position: relative;
+}
+.landingpage .col-box .menu1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/vr/photo_2024-10-29_15-33-07.jpg?raw=true");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  z-index: -1;
+}
+.landingpage .col-box .menu2 {
+  position: relative;
+}
+.landingpage .col-box .menu2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-35-26.jpg?raw=true");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  z-index: -1;
+}
+.landingpage .col-box .menu3 {
+  position: relative;
+}
+.landingpage .col-box .menu3::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-36-45.jpg?raw=true");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  z-index: -1;
+}
+.landingpage .col-box .menu4 {
+  position: relative;
+}
+.landingpage .col-box .menu4::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/vr/photo_2024-10-29_15-40-34.jpg?raw=true");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 1;
+  z-index: -1;
+}

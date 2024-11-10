@@ -1,1 +1,26 @@
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",system-ui}section{height:50vh;width:100vw;background-image:url("https://github.com/Manjares360/villareyesimage/blob/main/ameneties/photo_2024-10-29_15-31-59.jpg?raw=true");background-position:center;background-repeat:no-repeat;background-size:cover;position:relative}section:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,.5411764706);z-index:-1}/*# sourceMappingURL=promo.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui;
+}
+
+section {
+  height: 50vh;
+  width: 100vw;
+  background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/ameneties/photo_2024-10-29_15-31-59.jpg?raw=true");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+section:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5411764706);
+  z-index: -1;
+}

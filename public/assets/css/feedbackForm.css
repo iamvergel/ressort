@@ -1,1 +1,49 @@
-.container{background-color:#d5ccdf;border-radius:10px}.container h4{color:#413958;letter-spacing:1px}.container form .form-group{padding-block:.5rem}.container form .form-group label{color:#413958;letter-spacing:1px;font-size:15px;margin-bottom:.5rem}.container form .form-group input{background-color:#f4f1f6;border:none;padding:.5rem 1rem;color:#413958;border-radius:4px;font-size:12px;border-radius:0;border-left:3px solid #d5996e}.container form .form-group textarea{background-color:#f4f1f6;border:none;padding:.5rem 1rem;color:#413958;border-radius:4px;font-size:12px;border-radius:0;border-left:3px solid #d5996e}.container form button{background-color:#6d5f92;color:#fff;font-size:15px;font-weight:500;letter-spacing:1px;border-radius:0}.container form button:hover{background-color:#9b8fb6;color:#fff}/*# sourceMappingURL=feedbackForm.css.map */
+.container {
+  background-color: #d5ccdf;
+  border-radius: 10px;
+}
+.container h4 {
+  color: #413958;
+  letter-spacing: 1px;
+}
+.container form .form-group {
+  padding-block: 0.5rem;
+}
+.container form .form-group label {
+  color: #413958;
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-bottom: 0.5rem;
+}
+.container form .form-group input {
+  background-color: #f4f1f6;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #413958;
+  border-radius: 4px;
+  font-size: 12px;
+  border-radius: 0;
+  border-left: 3px solid #d5996e;
+}
+.container form .form-group textarea {
+  background-color: #f4f1f6;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #413958;
+  border-radius: 4px;
+  font-size: 12px;
+  border-radius: 0;
+  border-left: 3px solid #d5996e;
+}
+.container form button {
+  background-color: #6d5f92;
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 0;
+}
+.container form button:hover {
+  background-color: #9b8fb6;
+  color: white;
+}

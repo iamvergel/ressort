@@ -1,1 +1,80 @@
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",system-ui}.amacan .amacanpicturecontainer .amacanpicture{width:250px;height:250px;background-position:center;background-repeat:no-repeat;background-size:cover;animation:image 15s infinite alternate-reverse;border:1px solid #fff;transition:all .3s ease}@keyframes image{0%{background-image:url(/public/assets/images/ressortimages/amacan01.jpg)}30%{background-image:url(/public/assets/images/ressortimages/amacan02.jpg)}60%{background-image:url(/public/assets/images/ressortimages/amacan03.jpg)}80%{background-image:url(/public/assets/images/ressortimages/amacan04.jpg)}100%{background-image:url(/public/assets/images/ressortimages/amacan05.jpg)}}.amacan .amacanpicturecontainer .amacanpicture:hover{transform:scale(1.05)}.amacan .amacanpicturecontainer button{width:250px;background-color:#011f37;color:#fff;font-size:13px;transition:all .3s ease}.amacan .amacanpicturecontainer button:hover{background-color:#003866}.amacan .description{color:#011f37}.vrhousepicturecontainer .vrhousepicture{width:250px;height:250px;background-position:center;background-repeat:no-repeat;background-size:cover;animation:image2 15s infinite alternate-reverse;border:1px solid rgba(0,0,0,.3411764706)}@keyframes image2{0%{background-image:url(/public/assets/images/ressortimages/vr01.jpg)}30%{background-image:url(/public/assets/images/ressortimages/vr02.jpg)}60%{background-image:url(/public/assets/images/ressortimages/vr03.jpg)}80%{background-image:url(/public/assets/images/ressortimages/vr04.jpg)}100%{background-image:url(/public/assets/images/cover1.jpg)}}.vrhousepicturecontainer button{width:250px}/*# sourceMappingURL=room.css.map */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui;
+}
+
+.amacan .amacanpicturecontainer .amacanpicture {
+  width: 250px;
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: image 15s infinite alternate-reverse;
+  border: 1px solid #fff;
+  transition: all 0.3s ease;
+}
+@keyframes image {
+  0% {
+    background-image: url(/public/assets/images/ressortimages/amacan01.jpg);
+  }
+  30% {
+    background-image: url(/public/assets/images/ressortimages/amacan02.jpg);
+  }
+  60% {
+    background-image: url(/public/assets/images/ressortimages/amacan03.jpg);
+  }
+  80% {
+    background-image: url(/public/assets/images/ressortimages/amacan04.jpg);
+  }
+  100% {
+    background-image: url(/public/assets/images/ressortimages/amacan05.jpg);
+  }
+}
+.amacan .amacanpicturecontainer .amacanpicture:hover {
+  transform: scale(1.05);
+}
+.amacan .amacanpicturecontainer button {
+  width: 250px;
+  background-color: #011f37;
+  color: #fff;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.amacan .amacanpicturecontainer button:hover {
+  background-color: #003866;
+}
+.amacan .description {
+  color: #011f37;
+}
+
+.vrhousepicturecontainer .vrhousepicture {
+  width: 250px;
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: image2 15s infinite alternate-reverse;
+  border: 1px solid rgba(0, 0, 0, 0.3411764706);
+}
+@keyframes image2 {
+  0% {
+    background-image: url(/public/assets/images/ressortimages/vr01.jpg);
+  }
+  30% {
+    background-image: url(/public/assets/images/ressortimages/vr02.jpg);
+  }
+  60% {
+    background-image: url(/public/assets/images/ressortimages/vr03.jpg);
+  }
+  80% {
+    background-image: url(/public/assets/images/ressortimages/vr04.jpg);
+  }
+  100% {
+    background-image: url(/public/assets/images/cover1.jpg);
+  }
+}
+.vrhousepicturecontainer button {
+  width: 250px;
+}

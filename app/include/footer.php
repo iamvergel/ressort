@@ -9,7 +9,7 @@
       <li class="nav-item" data-aos="fade-up" data-aos-duration="500" data-aos-delay="600"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
       <li class="nav-item" data-aos="fade-up" data-aos-duration="500" data-aos-delay="700"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
     </ul>
-    <p class="text-center text-body-secondary" data-aos="fade-up" data-aos-duration="500" data-aos-delay="800">@ Copyright © 2024 Villa Reyes Family
+    <p class="text-center text-body-secondary">@ Copyright © 2024 Villa Reyes Family
     Private Resort. All Right Reserved</p>
   </footer>
 </div>
