@@ -1,5 +1,13 @@
 <?php
-require_once(dirname(__DIR__, 2) . '/configuration/dbConnection.php');
+session_start(); // Start the session
+
+// Check if the user is logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: /signin'); // Redirect to the login page if not logged in
+    exit();
+}
+
+require_once(dirname(__DIR__, 3) . '/configuration/dbConnection.php');
 
 // Get current month and year, handle next and previous month logic
 $month = isset($_GET['month']) ? (int) $_GET['month'] : date('m');
@@ -137,7 +145,8 @@ $firstDayOfMonth = date('w', strtotime("$year-$month-01"));
 </head>
 
 <body>
-    <?php include 'app/include/navigation.php'; ?>
+    <!-- Navigation Bar -->
+    <?php include 'app/views/user/include/header.php'; ?>
 
     <div class="header p-5 bg-dark"></div>
 

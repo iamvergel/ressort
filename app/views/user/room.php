@@ -1,3 +1,13 @@
+<?php
+session_start(); // Start the session
+
+// Check if the user is logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: /signin'); // Redirect to the login page if not logged in
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +35,7 @@
 
 <body>
     <!-- Navigation Bar -->
-    <?php include 'app/include/navigation.php'; ?>
+    <?php include 'app/views/user/include/header.php'; ?>
 
     <div class="room">
         <div class="header p-5 bg-dark">

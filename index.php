@@ -68,11 +68,11 @@ if ($uri === '') {
     
 } elseif ($uri === '/room') {
 
-    require_once(__DIR__ . '/app/views/room.php');
+    require_once(__DIR__ . '/app/views/user/room.php');
     
 }  elseif ($uri === '/amacan') {
 
-    require_once(__DIR__ . '/app/views/amacanbook.php');
+    require_once(__DIR__ . '/app/views/user/amacanbook.php');
     
 } elseif ($uri === '/amacanbooking') {
 
@@ -90,7 +90,12 @@ if ($uri === '') {
 
     require_once(__DIR__ . '/app/views/confirm.php');
     
-} else {
+} //user
+ elseif ($uri === '/userdashboard') {
+
+    require_once(__DIR__ . '/app/views/user/userlanding.php');
+    
+}else {
     http_response_code(404);
     echo "404 Not Found";
 }

@@ -28,9 +28,12 @@ class LoginController {
                 }
 
                 // Initialize the user model and validate credentials
-                $userModel = new User($this->pdo);
+                $userModel = new loginUser($this->pdo);
                 $user = $userModel->validate($username, $password);
 
+                $_SESSION['user'] = $user['username'];
+                $_SESSION['email'] = $user['email'];
+                   
                 // Check if user exists and password matches
                 if ($user) {
                     // Check if the user is verified
@@ -43,13 +46,12 @@ class LoginController {
 
                     // Regenerate session ID to prevent session fixation attacks
                     session_regenerate_id(true);
-
-                    // Store user info in session
-                    $_SESSION['user'] = $user['username'];
-                    $_SESSION['email'] = $user['email'];
-
+                    
                     // Send JSON response for successful login
-                    echo json_encode(['message' => 'Login successful']);
+                    echo json_encode([
+                        'message' => 'Login successful',
+                        'role' => $user['role'] // Include role in the response
+                    ]);
                     exit();
                 } else {
                     // Authentication failed, send error message

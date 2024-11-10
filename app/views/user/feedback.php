@@ -12,7 +12,8 @@
 </head>
 
 <body>
-    <?php include 'app/include/navigation.php'; ?>
+    <!-- Navigation Bar -->
+    <?php include 'app/views/user/include/header.php'; ?>
 
     <div class="header p-5 bg-dark"></div>
 

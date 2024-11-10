@@ -9,6 +9,9 @@ body {
   overflow-x: hidden;
 }
 
+.services .amacan {
+  background-color: #011f37;
+}
 .services .amacan .header img {
   filter: brightness(50%);
 }
@@ -18,9 +21,6 @@ body {
   font-size: 100PX;
   letter-spacing: 5PX;
   text-shadow: 0 0 20px rgba(248, 241, 105, 0.631372549);
-}
-.services .amacan .row {
-  background-color: #011f37;
 }
 .services .amacan .row img {
   border: solid 2px white;
@@ -59,6 +59,10 @@ body {
   letter-spacing: 1px;
   color: #f8f269;
 }
+.services .vrhouse {
+  background-color: white;
+  border-block: 1px solid rgba(255, 255, 255, 0.5254901961);
+}
 .services .vrhouse .header img {
   filter: brightness(50%);
 }
@@ -68,10 +72,6 @@ body {
   font-size: 100PX;
   letter-spacing: 5PX;
   text-shadow: 0 0 20px rgba(248, 241, 105, 0.631372549);
-}
-.services .vrhouse .row {
-  background-color: white;
-  border-block: 1px solid rgba(255, 255, 255, 0.5254901961);
 }
 .services .vrhouse .row img {
   border: solid 2px #011f37;
@@ -107,6 +107,9 @@ body {
   line-height: 2;
   font-size: 12px;
 }
+.services .wholeDay {
+  background-color: #011f37;
+}
 .services .wholeDay .header img {
   filter: brightness(50%);
 }
@@ -116,9 +119,6 @@ body {
   font-size: 100PX;
   letter-spacing: 5PX;
   text-shadow: 0 0 20px rgba(248, 241, 105, 0.631372549);
-}
-.services .wholeDay .row {
-  background-color: #011f37;
 }
 .services .wholeDay .row img {
   border: solid 2px white;

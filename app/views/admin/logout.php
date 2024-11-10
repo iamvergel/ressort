@@ -10,5 +10,5 @@ session_destroy();
 
 // Redirect to the login page
 session_start();
-header('Location: /admin');
+header('Location: /');
 exit();

@@ -1,15 +1,3 @@
-<?php
-session_start();
-
-if (isset($_SESSION['user'])) {
-    header('Location: /dashboard');
-    exit();
-}
-
-$alert = isset($_SESSION['alert']) ? $_SESSION['alert'] : '';
-unset($_SESSION['alert']);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,15 +22,25 @@ unset($_SESSION['alert']);
             padding: 0;
             box-sizing: border-box;
             font-family: "Poppins", system-ui;
+            scrollbar-width: thin;
         }
 
-        #background-video {
+        #background {
+            background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/ameneties/photo_2024-10-29_15-31-59.jpg?raw=true");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        #background::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            background-color: #00000093;
             z-index: -1;
         }
     </style>
@@ -52,17 +50,11 @@ unset($_SESSION['alert']);
     <?php include 'app/include/navigation.php'; ?>
 
     <div class="signin">
-        <video autoplay muted loop id="background-video" class="z-1">
-            <source src="public/assets/video/video4.mp4" type="video/mp4">
-            <source src="your-video-url.ogv" type="video/ogg">
-            <source src="your-video-url.webm" type="video/webm">
-        </video>
-
-        <div
-            class="p-2 lg-p-5 d-flex justify-content-center position-absolute w-100 h-100 align-items-center bg-dark bg-opacity-75 z-2">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12 col-lg-6 col-xl-4 p-2 shadow-lg bg-light rounded-4 mt-5">
+        <div class="d-flex justify-content-center align-items-center position-absolute shadow-lg w-100 py-5 py-lg-0 align-items-center z-2"
+            id="background">
+            <div class="container-fluid">
+                <div class="row justify-content-center p-lg-5">
+                    <div class="col-12 col-lg-6 col-xl-4 p-2 shadow-lg-lg bg-light rounded-3 mt-lg-5">
                         <img src="public/assets/images/logo/villaresortlogo.png" alt="logo" height="150px" class="m-4 ">
                         <form id="loginForm" class="p-5 px-4">
                             <div class="form-group mt-0">
@@ -125,53 +117,55 @@ unset($_SESSION['alert']);
     </div>
 
     <script>
-        document.getElementById('loginForm').addEventListener('submit', async function (event) {
-            event.preventDefault();
+       document.getElementById('loginForm').addEventListener('submit', async function (event) {
+    event.preventDefault();
 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-            const alertMessageElement = document.getElementById('alertMessage');
-            alertMessageElement.textContent = "Logging in...";
+    const alertMessageElement = document.getElementById('alertMessage');
+    alertMessageElement.textContent = "Logging in...";
 
-            try {
-                const response = await fetch('/app/controllers/loginController.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        username: username,
-                        password: password
-                    }),
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    // Redirect to dashboard based on role
-                    if (result.role === 'admin') {
-                        window.location.href = '/dashboard';
-                    } else {
-                        window.location.href = '/dashboard';
-                    }
-                } else {
-                    if (result.message === 'Account not verified. Please check your email for the verification code.') {
-                        // Show the account verification modal if the account is not verified
-                        const verifyAccountModal = new bootstrap.Modal(document.getElementById('verifyAccountModal'));
-                        document.getElementById('email').value = result.email; // Set the email from the response
-                        verifyAccountModal.show();
-                    } else {
-                        alertMessageElement.textContent = result.message || 'Username and password are incorrect';
-                        alertMessageElement.classList.remove('d-none');
-                    }
-                }
-            } catch (error) {
-                alertMessageElement.textContent = "An error occurred. Please try again.";
-                alertMessageElement.classList.remove('d-none');
-                console.error("Login Error:", error);
-            }
+    try {
+        // Send AJAX POST request to PHP backend
+        const response = await fetch('/app/controllers/loginController.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password
+            }),
         });
+
+        const result = await response.json(); // Parse the JSON response
+
+        if (response.ok) {
+            // Successful login
+            if (result.message === 'Login successful') {
+                // Redirect based on role
+                if (result.role === 'admin') {
+                    window.location.href = '/dashboard';
+                } else if (result.role === 'user') {
+                    window.location.href = '/userdashboard';
+                }
+            } else {
+                alertMessageElement.textContent = result.message || 'An unknown error occurred.';
+                alertMessageElement.classList.remove('d-none');
+            }
+        } else {
+            // Authentication error
+            alertMessageElement.textContent = result.message || 'Login failed. Please try again.';
+            alertMessageElement.classList.remove('d-none');
+        }
+
+    } catch (error) {
+        console.error("Login Error:", error);
+        alertMessageElement.textContent = "An error occurred while logging in.";
+        alertMessageElement.classList.remove('d-none');
+    }
+});
 
         // Resend Verification Code functionality
         document.getElementById('resendBtn').addEventListener('click', async function () {

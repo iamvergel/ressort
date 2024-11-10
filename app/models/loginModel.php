@@ -1,6 +1,6 @@
 <?php
 
-class User {
+class loginUser {
     private $pdo;
 
     public function __construct($pdo) {
@@ -15,7 +15,6 @@ class User {
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['password_hash'])) {
-            // Return the user from 'users' table (admin)
             $user['role'] = 'admin';  // Add a custom 'role' field
             return $user;
         }
@@ -26,12 +25,10 @@ class User {
         $user = $stmt->fetch();
 
         if ($user && password_verify($password, $user['password_hash'])) {
-            // Return the user from 'users_account' table (regular user)
             $user['role'] = 'user';  // Add a custom 'role' field
             return $user;
         }
 
-        // If no user is found or password does not match
-        return false;
+        return false; // Return false if no user is found or password doesn't match
     }
 }

@@ -20,18 +20,26 @@
             padding: 0;
             box-sizing: border-box;
             font-family: "Poppins", system-ui;
+            scrollbar-width: thin;
         }
 
-        #background-video {
+        #background {
+            background-image: url("https://github.com/Manjares360/villareyesimage/blob/main/ameneties/photo_2024-10-29_15-31-59.jpg?raw=true");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        #background::before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            /* Ensures the video covers the entire background */
+            background-color: #00000093;
             z-index: -1;
-            /* Keeps the video behind the content */
         }
     </style>
 </head>
@@ -40,31 +48,23 @@
     <?php include 'app/include/navigation.php'; ?>
 
     <div class="signup">
-        <!-- Video background -->
-        <video autoplay muted loop id="background-video" class="z-1">
-            <source src="public/assets/video/video4.mp4" type="video/mp4">
-            <source src="your-video-url.ogv" type="video/ogg">
-            <source src="your-video-url.webm" type="video/webm">
-            Your browser does not support the video tag.
-        </video>
-
         <!-- Content -->
         <div
-            class="p-2 lg-p-5 d-flex justify-content-center position-absolute w-100 h-100 align-items-center bg-dark bg-opacity-75 z-2 overflow-hidden">
+        class="d-flex justify-content-center align-items-center position-absolute shadow-lg w-100 py-5 py-lg-0 align-items-center z-2" id="background">
             <div class="container mt-5">
-                <div class="container-fluid">
+                <div class="">
                     <div class="p-5 shadow-lg bg-light rounded-4 my-5">
                         <button onclick="window.location.href = '/signin'"
                             class="position-absolute px-3 rounded-5 border-0 btn btn-primary shadow"><i
                                 class="bi bi-backspace-fill me-2"></i>Back</button>
                         <h2 class="text-center mb-4 fw-bold">Create Your Account</h2>
-                        <div class="alert alert-info p-0" role="alert">
+                        <div class="alert alert-info p-0" role="alert" style="font-size: 14px">
                             <img src="public/assets/images/logo/villaresortlogo.png" alt="logo" height="80px"
-                                class="me-3">
+                                class="me-3"> 
                             <strong>Note:</strong> Please ensure you enter the correct credentials when signing up to
                             avoid any issues with your account creation.
                         </div>
-                        <form id="signupForm" class="p-5 w-100">
+                        <form id="signupForm" class="p-5 px-4">
                             <div class="row">
                                 <div class="col-12 col-lg-6">
                                     <div class="form-group mt-2">

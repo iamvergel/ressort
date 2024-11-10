@@ -12,6 +12,7 @@ $text: #413958;
 $oxford-blue: #011F37ff;
 $icterine: #F8F269ff;
 $icterine1: #f8f169a1;
+$black: #00000093;
 
 * {
   margin: 0;
@@ -26,6 +27,7 @@ body {
 
 .services {
   .amacan {
+    background-color: $oxford-blue;
     .header {
       img {
         filter: brightness(50%);
@@ -40,9 +42,7 @@ body {
       }
     }
 
-    .row {
-      background-color: $oxford-blue;
-
+    .row {  
       img {
         border: solid 2px $white;
         transition: all 0.3s ease;
@@ -89,6 +89,8 @@ body {
   }
 
   .vrhouse {
+    background-color: $white;
+    border-block: 1px solid #ffffff86;
     .header {
       img {
         filter: brightness(50%);
@@ -104,8 +106,6 @@ body {
     }
 
     .row {
-      background-color: $white;
-      border-block: 1px solid #ffffff86;
 
       img {
         border: solid 2px $oxford-blue;
@@ -150,6 +150,7 @@ body {
   }
 
   .wholeDay {
+    background-color: $oxford-blue;
     .header {
       img {
         filter: brightness(50%);
@@ -165,8 +166,7 @@ body {
     }
 
     .row {
-      background-color: $oxford-blue;
-
+    
       img {
         border: solid 2px $white;
         transition: all 0.3s ease;
