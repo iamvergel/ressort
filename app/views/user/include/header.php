@@ -5,7 +5,7 @@
         <ul class="navbar-nav mx-auto mt-3 mt-lg-0">
             <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a
                     class="nav-link fw-normal text-uppercase" aria-current="page" href="/userdashboard">Home</a></li>
-            <li class="nav-item mx-2 d-none" data-aos="fade-right" data-aos-duration="1000"><a
+            <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a
                     class="nav-link fw-normal text-uppercase" href="/room">Room</a></li>
             <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a
                     class="nav-link fw-normal text-uppercase" href="/amenities">Amenities</a></li>
@@ -17,14 +17,12 @@
                     class="nav-link fw-normal text-uppercase" href="#contact">Contact Us</a></li>
             <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a
                     class="nav-link fw-normal text-uppercase" href="/promo">Promo/s</a></li>
-            <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a
-                    class="nav-link fw-normal text-uppercase" href="/room">room</a></li>
         </ul>
 
         <div class="dropdown" style="position: absolute; right: 0;">
             <button
-                class="border-0 dropdown-toggle mx-2 text-dark bg-light px-2 py-1 rounded-5 d-flex justify-content-center align-items-center" style="font-size: 12px;"
-                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                class="border-0 dropdown-toggle mx-2 text-dark bg-light px-2 py-1 rounded-5 d-flex justify-content-center align-items-center"
+                style="font-size: 12px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="bg-dark rounded-circle fw-bold text-light"
                     style="font-size: 20px; width: 40px; height: 40px; margin-right: 0.4rem; display: flex; align-items: center; justify-content: center;">
                     <?php
@@ -37,8 +35,7 @@
                 ?>
             </button>
             <ul class="dropdown-menu mx-5 w-75">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="/accountsetting">Account Setting</a></li>
                 <li><a class="dropdown-item" href="/logout">Sign out</a></li>
             </ul>
         </div>
@@ -59,8 +56,9 @@
             <div class="dropdown mt-3">
                 <ul class="navbar-nav mx-auto mt-3 mt-lg-0">
                     <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a
-                            class="nav-link fw-normal text-uppercase" aria-current="page" href="/">Home</a></li>
-                    <li class="nav-item mx-2 d-none" data-aos="fade-right" data-aos-duration="1000"><a
+                            class="nav-link fw-normal text-uppercase" aria-current="page" href="/userdashboard">Home</a>
+                    </li>
+                    <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a
                             class="nav-link fw-normal text-uppercase" href="/room">Room</a></li>
                     <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a
                             class="nav-link fw-normal text-uppercase" href="/amenities">Amenities</a></li>
@@ -72,10 +70,29 @@
                             class="nav-link fw-normal text-uppercase" href="#contact">Contact Us</a></li>
                     <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a
                             class="nav-link fw-normal text-uppercase" href="/promo">Promo/s</a></li>
-                    <li class="nav-item mx-2" data-aos="fade-right" data-aos-duration="1000"><a
-                            class="nav-link fw-normal text-uppercase" href="/signin">Sign in</a></li>
                 </ul>
             </div>
+        </div>
+
+        <div class="dropdown" style="position: absolute; bottom: 15rem;">
+            <button
+                class="border-0 dropdown-toggle mx-2 text-dark bg-light px-2 py-1 rounded-5 d-flex justify-content-center align-items-center"
+                style="font-size: 12px;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="bg-dark rounded-circle fw-bold text-light"
+                    style="font-size: 20px; width: 40px; height: 40px; margin-right: 0.4rem; display: flex; align-items: center; justify-content: center;">
+                    <?php
+                    $firstLetter = strtoupper(substr(htmlspecialchars($_SESSION['email']), 0, 1));
+                    echo $firstLetter;
+                    ?>
+                </span><?php
+                $firstLetter = $_SESSION['email'];
+                echo $firstLetter;
+                ?>
+            </button>
+            <ul class="dropdown-menu mx-4 w-75">
+                <li><a class="dropdown-item" href="/accountsetting">Account Setting</a></li>
+                <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+            </ul>
         </div>
     </div>
 </div>

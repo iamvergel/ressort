@@ -1,3 +1,12 @@
+<?php
+// Check if the user is logged in
+if (isset($_SESSION['user'])) {
+    $button_link = '/room'; // Redirect to room if the user is logged in
+} else {
+    $button_link = '/signin'; // Redirect to signin if the user is not logged in
+}
+?>
+
 <link rel="stylesheet" href="public/assets/css/landingpage.css">
 <style>
   .mask {
@@ -117,12 +126,14 @@
   <div class="container-fluid px-2 px-lg-5 overflow-hidden">
     <div class="row p-0 p-lg-5">
       <div class="col-12 col-lg-3 p-2 col-box" data-aos="fade-right" data-aos-duration="500">
-        <div class="menu1 h-100 w-100 d-flex justify-content-center align-items-end px-5">
-          <div class="content d-none px-5 text-end text-light">
-            <button class="btn btn-primary px-5 mb-5 fw-bold" onclick="window.location.href = '/signin'">ROOM</button>
-          </div>
-          <div class="mask bg-dark h-100 w-100 position-absolute top-0 z-n1 opacity-75"></div>
-        </div>
+      <div class="menu1 h-100 w-100 d-flex justify-content-center align-items-end px-5">
+    <div class="content d-none px-5 text-end text-light">
+        <button class="btn btn-primary px-5 mb-5 fw-bold" onclick="window.location.href = '<?php echo $button_link; ?>'">
+            ROOM
+        </button>
+    </div>
+    <div class="mask bg-dark h-100 w-100 position-absolute top-0 z-n1 opacity-75"></div>
+</div>
       </div>
       <div class="col-12 col-lg-3 p-2 col-box" data-aos="fade-up" data-aos-duration="500">
         <div class="menu2 h-100 w-100 d-flex justify-content-center align-items-end px-5">

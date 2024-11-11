@@ -158,6 +158,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
+    <!-- DataTable CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+
     <style>
         * {
             margin: 0;
@@ -186,9 +189,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <?php include 'app/views/admin/adminInclude/sidebar.php'; ?>
-    <div class="content">
-        <?php include 'app/views/admin/adminInclude/header.php'; ?>
+<?php include 'app/views/admin/adminInclude/header-top.php'; ?>
+    <div class="d-flex">
+        <?php include 'app/views/admin/adminInclude/sidebar.php'; ?>
+
+        <div class="container-fluid" style="height: 100vh; overflow-y: scroll; scrollbar-width: none;">
+            <?php include 'app/views/admin/adminInclude/header.php'; ?>
+            <div class="container">
+            <div class="content">
+
         <h2 class="my-5 fw-bold"><i class="bi bi-people-fill me-2"></i>Inquiries</h2>
 
         <div class="row w-100 my-5">
@@ -204,8 +213,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <h1 class="fw-bold"><i class="bi bi-houses-fill me-2"></i>Amacan & VR House</h1>
-        <div class="table-responsive">
-            <table class="container table table-hover border border-secondary">
+        <div class="table-responsive mt-5">
+            <table id="inquiriesTable" class="container table table-hover p-3">
                 <thead class="table-warning text-dark" style="font-size: 12px">
                     <tr>
                         <th>ID</th>
@@ -218,7 +227,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <th>Session</th>
                         <th>Price</th>
                         <th>Status</th>
-                        <th>Code</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -235,7 +243,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <td><?php echo htmlspecialchars($inquiry['session']); ?></td>
                             <td><?php echo htmlspecialchars($inquiry['price']); ?></td>
                             <td><?php echo htmlspecialchars($inquiry['status']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['code']); ?></td>
                             <td>
                                 <form action="/adminInquiries/AmacananVrhouse" method="POST" style="display:inline;">
                                     <input type="hidden" name="id" value="<?php echo htmlspecialchars($inquiry['id']); ?>">
@@ -258,6 +265,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </table>
         </div>
     </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTable JS -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#inquiriesTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "lengthChange": true
+            });
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

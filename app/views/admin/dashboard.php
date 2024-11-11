@@ -10,6 +10,32 @@ if (!isset($_SESSION['user'])) {
 }
 
 // Fetch the number of inquiries for Amacan
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM accepted_inquiries WHERE room = 'Amacan' AND status = 'accepted'");
+$stmt->execute();
+$amacanCountaccepted = $stmt->fetchColumn();
+
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM accepted_inquiries WHERE room = 'VR House' AND status = 'accepted'");
+$stmt->execute();
+$vrhouseCountaccepted = $stmt->fetchColumn();
+
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM accepted_inquiries WHERE room = 'Amacan & VR House' AND status = 'accepted'");
+$stmt->execute();
+$amacanvrhouseCountaccepted = $stmt->fetchColumn();
+
+// Fetch the number of inquiries for Amacan
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM accepted_inquiries WHERE room = 'Amacan' AND status = 'paid'");
+$stmt->execute();
+$amacanCountpaid = $stmt->fetchColumn();
+
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM accepted_inquiries WHERE room = 'VR House' AND status = 'paid'");
+$stmt->execute();
+$vrhouseCountpaid = $stmt->fetchColumn();
+
+$stmt = $pdo->prepare("SELECT COUNT(*) FROM accepted_inquiries WHERE room = 'Amacan & VR House' AND status = 'paid'");
+$stmt->execute();
+$amacanvrhouseCountpaid = $stmt->fetchColumn();
+
+// Fetch the number of inquiries for Amacan
 $stmt = $pdo->prepare("SELECT COUNT(*) FROM inquiries WHERE room = 'Amacan' AND status = 'pending'");
 $stmt->execute();
 $amacanCount = $stmt->fetchColumn();
@@ -77,7 +103,9 @@ $amacanvrhouseCount = $stmt->fetchColumn();
             <?php include 'app/views/admin/adminInclude/header.php'; ?>
 
             <div class="container">
-                <div class="row mt-5">
+            <div class="row mt-5">
+                <h2 class="fw-bold">Inquiries</h2>
+                <div class="row">
                     <div class="col text-center py-5 mx-2">
                         <div class="card bg-white text-light shadow-lg rounded-3 p-2">
                             <div class="card-header bg-warning">
@@ -113,8 +141,81 @@ $amacanvrhouseCount = $stmt->fetchColumn();
                     </div>
                 </div>
 
+                <h2 class="fw-bold">Accepted Inquiries</h2>
+                <div class="col text-center py-5 mx-2">
+                        <div class="card bg-white text-light shadow-lg rounded-3 p-2">
+                            <div class="card-header bg-warning">
+                                <h4 class="mb-0 fw-bold"><i class="bi bi-people-fill me-2"></i>Amacan Inquiries</h4>
+                            </div>
+                            <div class="card-body text-end text-warning">
+                                <h2 class="card-text fw-bold mt-3"><?php echo $amacanCountaccepted; ?></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col text-center py-5 mx-2">
+                        <div class="card bg-light text-light shadow-lg rounded-3 p-2">
+                            <div class="card-header bg-success">
+                                <h4 class="mb-0 fw-bold"><i class="bi bi-people-fill me-2"></i>VR House Inquiries</h4>
+                            </div>
+                            <div class="card-body text-success text-end">
+                                <h2 class="card-text fw-bold mt-3"><?php echo $vrhouseCountaccepted; ?></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col text-center py-5 mx-2">
+                        <div class="card bg-light text-light shadow-lg rounded-3 p-2">
+                            <div class="card-header bg-primary">
+                                <h4 class="mb-0 fw-bold"><i class="bi bi-people-fill me-2"></i>Amacan & VR Houses
+                                    Inquiries</h4>
+                            </div>
+                            <div class="card-body text-primary text-end">
+                                <h2 class="card-text fw-bold mt-3"><?php echo $amacanvrhouseCountaccepted; ?></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="fw-bold">Paid</h2>
+                <div class="row">
+                    <div class="col text-center py-5 mx-2">
+                        <div class="card bg-white text-light shadow-lg rounded-3 p-2">
+                            <div class="card-header bg-warning">
+                                <h4 class="mb-0 fw-bold"><i class="bi bi-people-fill me-2"></i>Amacan Inquiries</h4>
+                            </div>
+                            <div class="card-body text-end text-warning">
+                                <h2 class="card-text fw-bold mt-3"><?php echo $amacanCountpaid; ?></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col text-center py-5 mx-2">
+                        <div class="card bg-light text-light shadow-lg rounded-3 p-2">
+                            <div class="card-header bg-success">
+                                <h4 class="mb-0 fw-bold"><i class="bi bi-people-fill me-2"></i>VR House Inquiries</h4>
+                            </div>
+                            <div class="card-body text-success text-end">
+                                <h2 class="card-text fw-bold mt-3"><?php echo $vrhouseCountpaid; ?></h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col text-center py-5 mx-2">
+                        <div class="card bg-light text-light shadow-lg rounded-3 p-2">
+                            <div class="card-header bg-primary">
+                                <h4 class="mb-0 fw-bold"><i class="bi bi-people-fill me-2"></i>Amacan & VR Houses
+                                    Inquiries</h4>
+                            </div>
+                            <div class="card-body text-primary text-end">
+                                <h2 class="card-text fw-bold mt-3"><?php echo $amacanvrhouseCountpaid; ?></h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row mt-5">
-                    <div class="col-6 text-center">
+                    <div class="col-12 text-center">
                         <h3 class="fw-bold">Inquiries Overview</h3>
                         <canvas id="inquiriesChart"></canvas>
                     </div>

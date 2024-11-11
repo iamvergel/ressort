@@ -47,11 +47,17 @@
 </head>
 
 <body>
-    <?php include 'app/views/admin/adminInclude/sidebar.php'; ?>
-    <div class="content">
-        <?php include 'app/views/admin/adminInclude/header.php'; ?>
-        <?php include 'app/views/admin/adminInclude/addappointmentslots.php'; ?>
+<?php include 'app/views/admin/adminInclude/header-top.php'; ?>
+    <div class="d-flex">
+        <?php include 'app/views/admin/adminInclude/sidebar.php'; ?>
+
+        <div class="container-fluid">
+            <?php include 'app/views/admin/adminInclude/header.php'; ?>
+
+            <?php include 'app/views/admin/adminInclude/addappointmentslots.php'; ?>
+        </div>
     </div>
+
 </body>
 
 </html>

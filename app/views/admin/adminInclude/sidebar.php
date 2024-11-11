@@ -90,8 +90,8 @@
 
         <p class="text-light mx-3 border-bottom border-light py-3 mt-4 mb-1" style="font-size: 12px;"><i class="bi bi-journal-text me-2"></i>Booking Management
         </p>
-        <a href="#">Payment Records</a>
-        <a href="#">Manage Account</a>
+        <a href="/PaymentRecord">Payment Records</a>
+        <a href="/ManageAccount">Manage Account</a>
         <a href="/logout" class="my-5"><i class="bi bi-box-arrow-left me-2"></i>Logout</a>
 
 

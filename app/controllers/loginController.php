@@ -31,8 +31,16 @@ class LoginController {
                 $userModel = new loginUser($this->pdo);
                 $user = $userModel->validate($username, $password);
 
-                $_SESSION['user'] = $user['username'];
-                $_SESSION['email'] = $user['email'];
+                $_SESSION['user'] = $user['username'];           
+                $_SESSION['email'] = $user['email'];             
+                $_SESSION['name'] = $user['name'];               
+                $_SESSION['phone'] = $user['phone'];             
+                $_SESSION['street_address'] = $user['street_address']; 
+                $_SESSION['verified'] = $user['verified'];       
+                $_SESSION['verification_code'] = $user['verification_code']; 
+                $_SESSION['created_at'] = $user['created_at'];   
+                $_SESSION['updated_at'] = $user['updated_at'];   
+                $_SESSION['id'] = $user['id'];                   
                    
                 // Check if user exists and password matches
                 if ($user) {

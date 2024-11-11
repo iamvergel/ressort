@@ -23,28 +23,36 @@ $icterine1: #f8f169a1;
     .amacanpicture {
       width: 250px;
       height: 250px;
+      background-color: white;
+      background-image: url('https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-36-47.jpg?raw=true');
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      animation: image 15s infinite alternate-reverse;
+      animation: image 25s infinite ease alternate-reverse;
       border: 1px solid #fff;
       transition: all 0.3s ease;
 
       @keyframes image {
         0% {
-          background-image: url(/public/assets/images/ressortimages/amacan01.jpg);
+          background-image: url(https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-36-47.jpg?raw=true);
         }
-        30% {
-          background-image: url(/public/assets/images/ressortimages/amacan02.jpg);
+        20% {
+          background-image: url(https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-34-36.jpg?raw=true);
+        }
+        40% {
+          background-image: url(https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-34-54.jpg?raw=true);
         }
         60% {
-          background-image: url(/public/assets/images/ressortimages/amacan03.jpg);
+          background-image: url(https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-34-56.jpg?raw=true);
+        }
+        70% {
+          background-image: url(https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-35-26.jpg?raw=true);
         }
         80% {
-          background-image: url(/public/assets/images/ressortimages/amacan04.jpg);
+          background-image: url(https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-35-29.jpg?raw=true);
         }
         100% {
-          background-image: url(/public/assets/images/ressortimages/amacan05.jpg);
+          background-image: url(https://github.com/Manjares360/villareyesimage/blob/main/amacan/photo_2024-10-29_15-34-30.jpg?raw=true);
         }
       }
 
@@ -78,24 +86,42 @@ $icterine1: #f8f169a1;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    animation: image2 15s infinite alternate-reverse;
+    animation: image2 25s infinite alternate-reverse;
     border: 1px solid #00000057;
 
     @keyframes image2 {
       0% {
         background-image: url(/public/assets/images/ressortimages/vr01.jpg);
       }
-      30% {
+      10% {
         background-image: url(/public/assets/images/ressortimages/vr02.jpg);
       }
+      20% {
+        background-image: url(/public/assets/images/ressortimages/vr03.jpg);
+      }
+      30% {
+        background-image: url(/public/assets/images/ressortimages/vr04.jpg);
+      }
+      40% {
+        background-image: url(/public/assets/images/cover1.jpg);
+      }
+      50% {
+        background-image: url(/public/assets/images/ressortimages/vr01.jpg);
+      }
       60% {
+        background-image: url(/public/assets/images/ressortimages/vr02.jpg);
+      }
+      70% {
         background-image: url(/public/assets/images/ressortimages/vr03.jpg);
       }
       80% {
-        background-image: url(/public/assets/images/ressortimages/vr04.jpg);
+        background-image: url(/public/assets/images/ressortimages/vr01.jpg);
+      }
+      90% {
+        background-image: url(/public/assets/images/ressortimages/vr02.jpg);
       }
       100% {
-        background-image: url(/public/assets/images/cover1.jpg);
+        background-image: url(/public/assets/images/ressortimages/vr03.jpg);
       }
     }
   }

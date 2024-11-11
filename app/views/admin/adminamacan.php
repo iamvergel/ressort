@@ -159,6 +159,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
+    <!-- DataTable CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+
     <style>
         * {
             margin: 0;
@@ -187,78 +190,111 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-    <?php include 'app/views/admin/adminInclude/sidebar.php'; ?>
-    <div class="content">
-        <?php include 'app/views/admin/adminInclude/header.php'; ?>
-        <h2 class="my-5 fw-bold"><i class="bi bi-people-fill me-2"></i>Inquiries</h2>
+    <?php include 'app/views/admin/adminInclude/header-top.php'; ?>
+    <div class="d-flex">
+        <?php include 'app/views/admin/adminInclude/sidebar.php'; ?>
 
-        <div class="row w-100 my-5">
-            <button class="col btn btn-warning p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold amacan"
-                onclick="window.location.href = '/adminInquiries/Amacan'"><i
-                    class="bi bi-house-fill me-2"></i>Amacan</button>
-            <button class="col btn btn-success p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold vrhouse"
-                onclick="window.location.href = '/adminInquiries/Vrhouse'"><i class="bi bi-house-door-fill me-2"></i>VR
-                House</button>
-            <button class="col btn btn-primary p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold 22hrs"
-                onclick="window.location.href = '/adminInquiries/AmacananVrhouse'"><i
-                    class="bi bi-houses-fill me-2"></i>Amacan & VR House</button>
-        </div>
+        <div class="container-fluid" style="height: 100vh; overflow-y: scroll; scrollbar-width: none;">
+            <?php include 'app/views/admin/adminInclude/header.php'; ?>
 
-        <h1 class="fw-bold"><i class="bi bi-house-fill me-2"></i>Amacan</h1>
-        <div class="table-responsive">
-            <table class="container table table-hover border border-secondary">
-                <thead class="table-warning text-dark" style="font-size: 12px">
-                    <tr>
-                        <th>ID</th>
-                        <th>Full Name</th>
-                        <th>Email</th>
-                        <th>Contact Number</th>
-                        <th>Room</th>
-                        <th>Quantity</th>
-                        <th>Preferred Date</th>
-                        <th>Session</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Code</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="text-dark" style="font-size: 12px">
-                    <?php foreach ($amacanInquiries as $inquiry): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($inquiry['id']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['full_name']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['email']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['contact_number']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['room']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['quantity']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['preferred_date']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['session']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['price']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['status']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['code']); ?></td>
-                            <td>
-                            <form action="/adminInquiries/Amacan" method="POST" style="display:inline;">
-                                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($inquiry['id']); ?>">
-                                    <input type="hidden" name="action" value="accept">
-                                    <button class="btn btn-success btn-sm" style="font-size: 12px" type="submit">
-                                        Accept
-                                    </button>
-                                </form>
-                                <form action="/adminInquiries/Amacan" method="POST" style="display:inline;">
-                                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($inquiry['id']); ?>">
-                                    <input type="hidden" name="action" value="decline">
-                                    <button class="btn btn-danger btn-sm" style="font-size: 12px" type="submit">
-                                        Decline
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div class="container">
+                <div class="content">
+                    <h2 class="my-5 fw-bold"><i class="bi bi-people-fill me-2"></i>Inquiries</h2>
+
+                    <div class="row w-100 my-5">
+                        <button
+                            class="col btn btn-warning p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold amacan"
+                            onclick="window.location.href = '/adminInquiries/Amacan'"><i
+                                class="bi bi-house-fill me-2"></i>Amacan</button>
+                        <button
+                            class="col btn btn-success p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold vrhouse"
+                            onclick="window.location.href = '/adminInquiries/Vrhouse'"><i
+                                class="bi bi-house-door-fill me-2"></i>VR
+                            House</button>
+                        <button
+                            class="col btn btn-primary p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold 22hrs"
+                            onclick="window.location.href = '/adminInquiries/AmacananVrhouse'"><i
+                                class="bi bi-houses-fill me-2"></i>Amacan & VR House</button>
+                    </div>
+
+                    <h1 class="fw-bold"><i class="bi bi-house-fill me-2"></i>Amacan</h1>
+                    <div class="table-responsive mt-5">
+                        <!-- Add an ID to the table for DataTable initialization -->
+                        <table id="inquiriesTable" class="container table table-hover p-3">
+                            <thead class="table-warning text-dark" style="font-size: 12px">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                    <th>Room</th>
+                                    <th>Quantity</th>
+                                    <th>Preferred Date</th>
+                                    <th>Session</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-dark" style="font-size: 12px">
+                                <?php foreach ($amacanInquiries as $inquiry): ?>
+                                    <tr>
+                                        <td><?php echo htmlspecialchars($inquiry['id']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['full_name']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['email']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['contact_number']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['room']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['quantity']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['preferred_date']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['session']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['price']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['status']); ?></td>
+                                        <td>
+                                            <form action="/adminInquiries/Amacan" method="POST" style="display:inline;">
+                                                <input type="hidden" name="id"
+                                                    value="<?php echo htmlspecialchars($inquiry['id']); ?>">
+                                                <input type="hidden" name="action" value="accept">
+                                                <button class="btn btn-success btn-sm" style="font-size: 12px"
+                                                    type="submit">
+                                                    Accept
+                                                </button>
+                                            </form>
+                                            <form action="/adminInquiries/Amacan" method="POST" style="display:inline;">
+                                                <input type="hidden" name="id"
+                                                    value="<?php echo htmlspecialchars($inquiry['id']); ?>">
+                                                <input type="hidden" name="action" value="decline">
+                                                <button class="btn btn-danger btn-sm" style="font-size: 12px" type="submit">
+                                                    Decline
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Include jQuery and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+
+    <!-- Initialize DataTable -->
+    <script>
+        $(document).ready(function() {
+            $('#inquiriesTable').DataTable({
+                "paging": true,
+                "searching": true,
+                "ordering": true,
+                "info": true,
+                "lengthChange": true
+            });
+        });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

@@ -1,20 +1,11 @@
 <?php
-require_once(dirname(__DIR__, 2) . '/configuration/dbConnection.php');
-require_once(dirname(__DIR__, 2) . '/app/controllers/amacanbookController.php');
+require_once(dirname(__DIR__, 3) . '/configuration/dbConnection.php');
+require_once(dirname(__DIR__, 3) . '/app/controllers/amacanbookController.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get form data
     $full_name = $_POST['full_name'];
-
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    if ($email === false) {
-        echo "<script>
-                    alert('Invalid email format.');
-                    window.history.back();
-                  </script>";
-        exit;
-    }
-
+    $email = $_POST['email'];
     $contact_number = $_POST['contact_number'];
     $room = $_POST['room'];
     $quantity = $_POST['quantity'];
@@ -40,19 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else { // Weekday
             $price = ($session === 'AM') ? 8000 : 9000; // Weekday pricing
         }
-    }
-
-    // Check if the email already exists in the database
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM inquiries WHERE email = ?");
-    $stmt->execute([$email]);
-    $existingBookings = $stmt->fetchColumn();
-
-    if ($existingBookings > 0) {
-        echo "<script>
-            alert('Booking with this email already exists. Please use a different email.');
-            window.history.back();
-          </script>";
-        exit();
     }
 
     // Check available slots before making any updates
@@ -84,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt->bindParam(':date', $preferred_date);
                 $stmt->execute();
             }
-
 
             // Create an instance of the controller
             $controller = new Camacanbook($pdo);

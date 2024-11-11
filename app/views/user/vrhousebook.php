@@ -1,5 +1,13 @@
 <?php
-require_once(dirname(__DIR__, 2) . '/configuration/dbConnection.php');
+session_start(); // Start the session
+
+// Check if the user is logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: /signin'); // Redirect to the login page if not logged in
+    exit();
+}
+
+require_once(dirname(__DIR__, 3) . '/configuration/dbConnection.php');
 
 // Get current month and year, handle next and previous month logic
 $month = isset($_GET['month']) ? (int) $_GET['month'] : date('m');
@@ -137,7 +145,8 @@ $firstDayOfMonth = date('w', strtotime("$year-$month-01"));
 </head>
 
 <body>
-    <?php include 'app/include/navigation.php'; ?>
+    <!-- Navigation Bar -->
+    <?php include 'app/views/user/include/header.php'; ?>
 
     <div class="header p-5 bg-dark"></div>
 
@@ -172,15 +181,15 @@ $firstDayOfMonth = date('w', strtotime("$year-$month-01"));
                     <button id="nextBtn" class="rounded-circle border-0 fs-1 mx-5" style="color: #011F37ff;"
                         onclick="changeDate('next')"><i class="bi bi-arrow-right-circle-fill"></i></button>
                 </div>
-                <div class="calendarbg p-4 bg-light shadow-lg rounded-4">
-                    <div class="row text-center" style="color: #011F37ff;">
-                        <div class="col bg-light fw-semibold fs-5 monsun">Sun</div>
-                        <div class="col bg-light fw-semibold fs-5 monsun">Mon</div>
-                        <div class="col bg-light fw-semibold fs-5 monsun">Tue</div>
-                        <div class="col bg-light fw-semibold fs-5 monsun">Wed</div>
-                        <div class="col bg-light fw-semibold fs-5 monsun">Thu</div>
-                        <div class="col bg-light fw-semibold fs-5 monsun">Fri</div>
-                        <div class="col bg-light fw-semibold fs-5 monsun">Sat</div>
+                <div class="calendarbg p-2 bg-light shadow-lg rounded-4">
+                    <div class="row text-center" style="color: #011F37ff; font-size : 12px;">
+                        <div class="col  fw-semibold  monsun">Sun</div>
+                        <div class="col fw-semibold  monsun">Mon</div>
+                        <div class="col  fw-semibold  monsun">Tue</div>
+                        <div class="col  fw-semibold  monsun">Wed</div>
+                        <div class="col  fw-semibold monsun">Thu</div>
+                        <div class="col  fw-semibold  monsun">Fri</div>
+                        <div class="col fw-semibold  monsun">Sat</div>
                     </div>
                     <div class="calendar" id="calendar"></div>
                 </div>
@@ -217,20 +226,20 @@ $firstDayOfMonth = date('w', strtotime("$year-$month-01"));
                     </div>
                     <div class="form-group">
                         <label for="full_name"><span class="text-danger">*</span>Full Name:</label>
-                        <input type="text" class="form-control" name="full_name" required>
+                        <input type="text" class="form-control" value="<?php echo $_SESSION['name'] ?>" name="full_name" required readonly>
                     </div>
                     <div class="form-group">
                         <label for="email"><span class="text-danger">*</span>Email: <small class="fw-normal"
                                 style="font-size: 12px;">(Please ensure that your email address is formatted correctly
                                 with @gmail.com.)</small></label>
                         <input type="email" class="form-control" name="email" required
-                            pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" title="Please enter a valid Gmail address.">
+                            pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" value="<?php echo $_SESSION['email'] ?>" title="Please enter a valid Gmail address." readonly>
                     </div>
                     <div class="form-group">
                         <label for="contact_number"><span class="text-danger">*</span>Contact Number: <br /><small
                                 class="fw-normal" style="font-size: 12px;">(Please ensure the phone numbers begin with
                                 '09' and consist of 11 digits in total.)</small></label>
-                        <input type="text" class="form-control" name="contact_number" required pattern="^09\d{9}$"
+                        <input type="text" class="form-control" value="<?php echo $_SESSION['phone'] ?>" name="contact_number" readonly required pattern="^09\d{9}$"
                             title="Please enter a valid 11-digit number starting with 09.">
                     </div>
                     <div class="form-group">

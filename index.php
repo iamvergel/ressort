@@ -58,6 +58,14 @@ if ($uri === '') {
 
     require_once 'app/views/admin/adminaccepted.php';
 
+} elseif ($uri === '/PaymentRecord') {
+
+    require_once 'app/views/admin/adminpaymentrecord.php';
+
+}elseif ($uri === '/ManageAccount') {
+
+    require_once 'app/views/admin/manageaccount.php';
+
 } elseif ($uri === '/DeclinedInquiries') {
 
     require_once 'app/views/admin/admindecline.php';
@@ -76,15 +84,15 @@ if ($uri === '') {
     
 } elseif ($uri === '/amacanbooking') {
 
-    require_once(__DIR__ . '/app/views/amacanprocessbooking.php');
+    require_once(__DIR__ . '/app/views/user/amacanprocessbooking.php');
     
 } elseif ($uri === '/vrhouse') {
 
-    require_once(__DIR__ . '/app/views/vrhousebook.php');
+    require_once(__DIR__ . '/app/views/user/vrhousebook.php');
     
 } elseif ($uri === '/vrhousebooking') {
 
-    require_once(__DIR__ . '/app/views/vrhousenprocessbooking.php');
+    require_once(__DIR__ . '/app/views/user/vrhousenprocessbooking.php');
     
 } elseif ($uri === '/confirm') {
 
@@ -94,6 +102,10 @@ if ($uri === '') {
  elseif ($uri === '/userdashboard') {
 
     require_once(__DIR__ . '/app/views/user/userlanding.php');
+    
+} elseif ($uri === '/accountsetting') {
+
+    require_once(__DIR__ . '/app/views/user/accountsetting.php');
     
 }else {
     http_response_code(404);

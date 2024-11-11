@@ -162,7 +162,7 @@
 
     } catch (error) {
         console.error("Login Error:", error);
-        alertMessageElement.textContent = "An error occurred while logging in.";
+        alertMessageElement.textContent = "Username or password incorrect!";
         alertMessageElement.classList.remove('d-none');
     }
 });

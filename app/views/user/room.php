@@ -45,14 +45,14 @@ if (!isset($_SESSION['user'])) {
 
         <div class="container amacan mt-5 p-5 bg-light rounded-4 shadow-lg">
             <div class="row">
-                <div class="col-4 p-5 bg-light d-flex justify-content-center align-items-center rounded-4 shadow-lg">
+                <div class="col-12 col-lg-4 p-5 bg-light d-flex justify-content-center align-items-center rounded-4 shadow-lg">
                     <div class="amacanpicturecontainer">
                         <div class="amacanpicture rounded-3" onclick="window.location.href = '/Services'">
                         </div>
                         <button class="p-1 py-2 mt-5 border-0 text-uppercase fw-semibold" onclick="window.location.href = '/amacan'">Reserve now</button>
                     </div>
                 </div>
-                <div class="col-8 p-5 rounded-end description">
+                <div class="col-12 col-lg-8 p-5 rounded-end description">
                     <h1 class="fw-bold text-uppercase">Amacan House</h1><br />
 
                     <div class="row">
@@ -80,16 +80,16 @@ if (!isset($_SESSION['user'])) {
             </div>
         </div>
 
-        <div class="container amacan mt-5 p-5 bg-light rounded-4 shadow-lg">
+        <div class="container vrhouse mt-5 p-5 bg-light rounded-4 shadow-lg">
             <div class="row">
-                <div class="col-4 p-5 bg-light d-flex justify-content-center align-items-center rounded-4 shadow-lg">
-                    <div class="amacanpicturecontainer">
-                        <div class="amacanpicture rounded-3" onclick="window.location.href = '/Services'">
+                <div class="col-12 col-lg-4 p-5 bg-light d-flex justify-content-center align-items-center rounded-4 shadow-lg">
+                    <div class="vrhousepicturecontainer">
+                        <div class="vrhousepicture rounded-3" onclick="window.location.href = '/Services'">
                         </div>
                         <button class="p-1 py-2 mt-5 border-0 text-uppercase fw-semibold" onclick="window.location.href = '/vrhouse'">Reserve now</button>
                     </div>
                 </div>
-                <div class="col-8 p-5 rounded-end description">
+                <div class="col-12 col-lg-8 p-5 rounded-end description">
                     <h1 class="fw-bold text-uppercase">VR House</h1><br />
 
                     <div class="row">

@@ -1,11 +1,10 @@
 <?php
-require_once(dirname(__DIR__, 2) . '/configuration/dbConnection.php');
-require_once(dirname(__DIR__, 2) . '/app/controllers/vrhousebookController.php');
+require_once(dirname(__DIR__, 3) . '/configuration/dbConnection.php');
+require_once(dirname(__DIR__, 3) . '/app/controllers/amacanbookController.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Get form data
     $full_name = $_POST['full_name'];
-
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     if ($email === false) {
         echo "<script>
@@ -14,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   </script>";
         exit;
     }
-    
+
     $contact_number = $_POST['contact_number'];
     $room = $_POST['room'];
     $quantity = $_POST['quantity'];
@@ -42,27 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Check if the email already exists in the database
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM inquiries WHERE email = ?");
-    $stmt->execute([$email]);
-    $existingBookings = $stmt->fetchColumn();
-
-    if ($existingBookings > 0) {
-        echo "<script>
-            alert('Booking with this email already exists. Please use a different email.');
-            window.history.back();
-          </script>";
-        exit();
-    }
-
     // Check available slots before making any updates
     $stmt = $pdo->prepare("SELECT slots FROM availableslots WHERE date = :date AND session = :session AND name IN ('VR House', '22 Hours')");
-$stmt->bindParam(':date', $preferred_date); // Ensure you use the correct variable
-$stmt->bindParam(':session', $session);
-$stmt->execute();
-$slot = $stmt->fetch(PDO::FETCH_ASSOC); // Fetch as an associative array
-
-
+    $stmt->bindParam(':date', $preferred_date); // Ensure you use the correct variable
+    $stmt->bindParam(':session', $session);
+    $stmt->execute();
+    $slot = $stmt->fetch(PDO::FETCH_ASSOC); // Fetch as an associative array
 
     if ($slot['slots'] > 0) {
         // Proceed with slot adjustments
@@ -80,16 +64,15 @@ $slot = $stmt->fetch(PDO::FETCH_ASSOC); // Fetch as an associative array
                 $stmt->bindParam(':date', $preferred_date);
                 $stmt->bindParam(':session', $session);
                 $stmt->execute();
-            
+
                 // Set "22 Hours" slot to 0 if either AM or PM is booked
-                $stmt = $pdo->prepare("UPDATE availableslots SET slots = 0 WHERE date = :date AND session = '22 Hours' AND name IN ('Amacan', 'VR House', '22 Hours ')");
+                $stmt = $pdo->prepare("UPDATE availableslots SET slots = 0 WHERE date = :date AND session = '22 Hours' AND name IN ('Amacan', 'VR House', '22 Hours')");
                 $stmt->bindParam(':date', $preferred_date);
                 $stmt->execute();
             }
-            
 
             // Create an instance of the controller
-            $controller = new Cvrhousebook($pdo);
+            $controller = new Camacanbook($pdo);
 
             // Prepare data for booking
             $bookingData = [

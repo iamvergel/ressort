@@ -1,3 +1,7 @@
+<?php
+session_start(); // Start the session
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,8 +29,14 @@
 </head>
 
 <body>
-    <!-- Navigation Bar -->
-    <?php include 'app/include/navigation.php'; ?>
+<?php
+    // Check if the user is logged in
+    if (isset($_SESSION['user'])) {
+        include 'app/views/user/include/header.php'; // Redirect to room if the user is logged in
+    } else {
+        include 'app/include/navigation.php';
+    }
+    ?>
 
     <div class="promo overflow-hidden">
         <section class="py-5 text-center" data-aos="zoom-in" data-aos-duration="800">
