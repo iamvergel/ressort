@@ -158,6 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <th>Price</th>
                                 <th>Status</th>
                                 <th>Code</th>
+                                <th>Payment Screenshot</th> <!-- New Column for Screenshot -->
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -177,6 +178,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         style="background-color: <?php echo $inquiry['status'] === 'paid' ? '#d4edda' : 'transparent'; ?>;">
                                         <?php echo htmlspecialchars($inquiry['status']); ?></td>
                                     <td><?php echo htmlspecialchars($inquiry['code']); ?></td>
+                                    <!-- New Column for Payment Screenshot -->
+                            <td>
+                                            <?php if ($inquiry['payment_screenshot']): ?>
+                                                <!-- Display the screenshot image and make it clickable -->
+                                                <a href="/uploads/payment_screenshots/<?php echo htmlspecialchars($inquiry['payment_screenshot']); ?>"
+                                                    target="_blank">
+                                                    <img src="/uploads/payment_screenshots/<?php echo htmlspecialchars($inquiry['payment_screenshot']); ?>"
+                                                        alt="Payment Screenshot"
+                                                        style="width: 50px; height: 50px; object-fit: cover;">
+                                                </a>
+                                            <?php else: ?>
+                                                <p>No screenshot</p>
+                                            <?php endif; ?>
+                                        </td>
                                     <td>
                                         <form action="/AcceptedInquiries" method="POST" style="display:inline;">
                                             <input type="hidden" name="id" value="<?php echo htmlspecialchars($inquiry['id']); ?>">

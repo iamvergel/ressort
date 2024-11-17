@@ -184,7 +184,7 @@ session_start(); // Start the session
         <div class="wholeDay">
             <div class="header w-100 d-flex justify-content-center align-items-center" data-aos="fade-up">
                 <img src="public/assets/images/ressortimages/amacan05.jpg" alt="Whole Day Amacan & VR House" class="w-100 object-fit-cover" height="400">
-                <h1 class="text-uppercase fw-semibold me-5 text-center">Whole Day Amacan & VR House <i class="bi bi-house-fill mx-5"></i></h1>
+                <h1 class="text-uppercase fw-semibold me-5 text-center">Whole Day <br/> Amacan & VR House <i class="bi bi-house-fill mx-5"></i></h1>
             </div>
 
             <div class="row">
@@ -197,30 +197,17 @@ session_start(); // Start the session
                 </div>
                 <div class="col-md-8" data-aos="fade-left">
                     <div class="row">
-                        <div class="col-md-6 p-5 text-center">
-                            <h1>Day Tour</h1>
-                            <p>8 AM to 6 PM</p>
-
-                            <h3>Weekdays</h3>
-                            <h5>P 8,000.00</h5>
-                            <p>Good for 20 people</p>
-
-                            <h3>Weekends</h3>
-                            <h5>P 9,000.00</h5>
-                            <p>Good for 20 people</p>
+                        <div class="col-md-6 p-5 text-start">
+                            <h1>22 Hours</h1>
+                            <p>P1,000.00 per head minimun of 10 pax <br />
+                               (if 10pax choose between Amacan and VR House) <br />
+                               if 15pax 2 houses will be given as accomodation <br/>
+                               3 years o;d below is free but included in head count as 20pax <br />
+                               Maximum of 20pax 
+                            </p>
                         </div>
 
                         <div class="col-md-6 p-5 text-center">
-                            <h1>Night Tour</h1>
-                            <p>6 PM to 8 AM</p>
-
-                            <h3>Weekdays</h3>
-                            <h5>P 9,000.00</h5>
-                            <p>Good for 20 people</p>
-
-                            <h3>Weekends</h3>
-                            <h5>P 10,000.00</h5>
-                            <p>Good for 20 people</p>
                         </div>
 
                         <div class="col-md-12 px-5" data-aos="fade-up">

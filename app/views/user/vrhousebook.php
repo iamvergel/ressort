@@ -151,30 +151,55 @@ $firstDayOfMonth = date('w', strtotime("$year-$month-01"));
     <div class="header p-5 bg-dark"></div>
 
     <div class="container-fluid py-5 mb-5 bg-light">
-        <div class="payment-info mt-5 p-5 mb-5 rounded-4 shadow-lg">
-            <h4 class="fw-semibold text-uppercase">Payment Information</h4>
-            <p>
-                <strong>Metrobank:</strong> Villa Reyes Family
-                Private Resort 000-0-00000000-0<br>
-                <strong>Philippine Business Bank:</strong> Villa Reyes Family
-                Private Resort 000-0-0000000-0
-            </p>
-            <ul>
-                <li class="my-2">Once deposited, send us a screenshot/photo of the deposit/reservation together
-                    with your
-                    reservation details.</li>
-                <li>Deposits are non-refundable and non-transferable.</li>
-                <li class="my-2">Kindly bring/present the original copy on the day of the reservation.</li>
-            </ul>
-            <h4 class="fw-semibold text-uppercase">Contact Us Through</h4>
-            <p>
-                <strong>Phone:</strong> 00000000000, 0000000000<br>
-                <strong>Email:</strong> <a href="villareyes1986@gmail.com">villareyes1986@gmail.com</a>
-            </p>
+    <div class="payment-info mt-5 p-5 mb-5 rounded-4 shadow-lg">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <h4 class="fw-semibold text-uppercase">Payment Information</h4>
+                    <p>Before making your reservation, please ensure that you make a down payment and upload a
+                        screenshot of your payment on the reservation form. Make sure your reservation is final before
+                        making the payment, as the down payment is non-refundable.</p>
+                    <ul>
+                        <li class="my-2">After making the down payment, please send us a screenshot/photo of the payment
+                            along with your reservation details.</li>
+                        <li>Down payments are non-refundable and non-transferable.</li>
+                        <li class="my-2">Kindly bring/present the original copy on the day of the reservation.</li>
+                    </ul>
+                    <h4 class="fw-semibold text-uppercase">Contact Us Through</h4>
+                    <p>If you have any questions or need assistance with the reservation process, please don't hesitate
+                        to reach out to us. We're here to help!</p>
+                    <p>
+                        <strong>Phone:</strong> +123 456 7890<br>
+                        <strong>Email:</strong> <a href="mailto:villareyes1986@gmail.com">villareyes1986@gmail.com</a>
+                    </p>
+                </div>
+                <div class="col-12 col-lg-6 d-flex align-items-center justify-content-center">
+                    <img src="public/assets/images/gcash.jpg" alt="GCash Payment" class="bg-danger rounded-4"
+                        height="500">
+                </div>
+            </div>
         </div>
+
         <div class="row">
             <div class="col-lg-7 col-12 px-3">
-                <div class="d-flex d-flex justify-content-center">
+                <div class="p-4 mt-4 rounded-3 shadow-lg" style="background-color: #011F37ff">
+                    <div class="p-2 rounded-3 shadow-lg" style="background-color: #011F37ff">
+                        <h4 class="text-white fw-semibold text-uppercase">Reservation Rules</h4>
+                        <ul class="text-white" style="font-size: 12px;">
+                            <li class="my-2">No walk-ins allowed.</li>
+                            <li>First to pay, first to book.</li>
+                            <li class="my-2">No downpayment, no reservations.</li>
+                            <li>1000 PHP downpayment through Gcash.</li>
+                            <li class="my-2">Reservation fee or downpayment is deductible but non-refundable.</li>
+                            <li>Cancellations of reservations must be made at least 1 week in advance of the scheduled
+                                reservation date.</li>
+                            <li class="my-2">One-time re-booking/re-schedule allowed, at least 1 week before the
+                                scheduled or reserved date. (Providing a target date within 24 hours is a must; if not,
+                                it will be considered a cancelled booking.)</li>
+                            <li>Automatic cancellation of booking for no-show guest.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="d-flex d-flex justify-content-center mt-5">
                     <button id="prevBtn" class="rounded-circle border-0 fs-1 mx-5" style="color: #011F37ff;"
                         onclick="changeDate('prev')"><i class="bi bi-arrow-left-circle-fill"></i></button>
                     <h2 id="monthYear" class="text-center mt-2 fw-semibold" style="color: #011F37ff;"></h2>
@@ -193,14 +218,10 @@ $firstDayOfMonth = date('w', strtotime("$year-$month-01"));
                     </div>
                     <div class="calendar" id="calendar"></div>
                 </div>
-
-                <div class="p-4 mt-4 rounded-3 shadow-lg" style="background-color: #011F37ff">
-                    <div class="p-2 rounded-3 shadow-lg" style="background-color: #011F37ff"></div>
-                </div>
             </div>
 
             <div class="col-lg-5 col-12 p-3 py-5">
-                <form action="/vrhousebooking" method="post" id="bookingForm" class="bg-light shadow p-5 rounded-4">
+                <form action="/vrhousebooking" method="post" enctype="multipart/form-data" id="bookingForm" class="bg-light shadow p-5 rounded-4">
                     <p class="fw-semibold mb-3">Fill up this form and we’ll get in touch with you as soon as possible.
                         <br /><br /><small class="fw-normal">(Please choose a date from the calendar for your
                             session.)</small>
@@ -248,6 +269,11 @@ $firstDayOfMonth = date('w', strtotime("$year-$month-01"));
                                 session is 22 hours, the maximum capacity is 20 people.)</small></label>
                         <input type="number" class="form-control" name="quantity" id="quantity" required min="1"
                             max="10">
+                    </div>
+                    <div class="form-group">
+                        <label for="payment_screenshot"><span class="text-danger">*</span>Payment Screenshot:</label>
+                        <input type="file" class="form-control" name="payment_screenshot" id="paymentScreenshot"
+                            accept="image/*" required>
                     </div>
                     <button type="submit" id="submitButton" name="button"
                         class="btn mt-5 mb-5 w-100 rounded-1 text-uppercase fw-semibold">Reserve Now</button>
@@ -308,7 +334,7 @@ $firstDayOfMonth = date('w', strtotime("$year-$month-01"));
 
                 calendar.innerHTML += `
                 <div class="col ${allSlotsZero ? 'unavailable' : ''}" 
-                style="margin: 0.1rem; font-size: 10px; cursor: ${allSlotsZero ? 'not-allowed' : 'pointer'}; background-color: ${allSlotsZero ? '#011f3785' : 'light'};" 
+                style="margin: 0.1rem; height: 9rem; font-size: 10px; cursor: ${allSlotsZero ? 'not-allowed' : 'pointer'}; background-color: ${allSlotsZero ? '#011f3785' : 'light'};" 
                 ${!allSlotsZero ? `onclick="setDate('${date}')" ` : 'disabled'}>
                 <div style="font-size: 15px;" class="mb-2 fw-semibold">${day}</div>
                 ${eventStatus.map(event => `<div>${event.session}: ${event.slots} slot</div>`).join('')}

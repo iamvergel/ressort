@@ -33,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
+    $payment_screenshot = isset($_FILES['payment_screenshot']) ? $_FILES['payment_screenshot'] : null;
+
     // Check available slots before making any updates
     $stmt = $pdo->prepare("SELECT slots FROM availableslots WHERE date = :date AND session = :session AND name IN ('Amacan', '22 Hours')");
     $stmt->bindParam(':date', $preferred_date); // Ensure you use the correct variable
@@ -66,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Create an instance of the controller
             $controller = new Camacanbook($pdo);
 
-            // Prepare data for booking
+            // Prepare the data for the controller
             $bookingData = [
                 'full_name' => $full_name,
                 'email' => $email,
@@ -74,20 +76,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'room' => $room,
                 'quantity' => $quantity,
                 'preferred_date' => $preferred_date,
-                'created_at' => $created_at,
                 'session' => $session,
-                'status' => $status, // Ensure status is set to pending
-                'code' => $code,
-                'price' => $price // Ensure price is included
+                'price' => $price,
+                'payment_screenshot' => $payment_screenshot
             ];
 
-            // Proceed to create the booking
-            if ($controller->create($bookingData)) {
+            // Create controller instance
+            $controller = new Camacanbook($pdo);
+
+            // Call the create method
+            $response = $controller->create($bookingData);
+
+            // Handle the response
+            $responseData = json_decode($response, true);
+            if (isset($responseData['success'])) {
                 echo "<script>
-                    alert('Booking successful!');
-                    window.location.href = '/amacan';
-                  </script>";
-                exit();
+            alert('Booking successful!');
+            window.location.href = '/amacan';
+        </script>";
+            } else {
+                echo "<script>
+            alert('" . $responseData['error'] . "');
+            window.history.back();
+        </script>";
             }
         } catch (PDOException $e) {
             echo "Error during booking: " . $e->getMessage();

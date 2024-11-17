@@ -49,8 +49,8 @@
 
     <div class="signup">
         <!-- Content -->
-        <div
-        class="d-flex justify-content-center align-items-center position-absolute shadow-lg w-100 py-5 py-lg-0 align-items-center z-2" id="background">
+        <div class="d-flex justify-content-center align-items-center position-absolute shadow-lg w-100 py-5 py-lg-0 align-items-center z-2"
+            id="background">
             <div class="container mt-5">
                 <div class="">
                     <div class="p-5 shadow-lg bg-light rounded-4 my-5">
@@ -60,7 +60,7 @@
                         <h2 class="text-center mb-4 fw-bold">Create Your Account</h2>
                         <div class="alert alert-info p-0" role="alert" style="font-size: 14px">
                             <img src="public/assets/images/logo/villaresortlogo.png" alt="logo" height="80px"
-                                class="me-3"> 
+                                class="me-3">
                             <strong>Note:</strong> Please ensure you enter the correct credentials when signing up to
                             avoid any issues with your account creation.
                         </div>
@@ -145,6 +145,14 @@
         </div>
     </div>
 
+    <div id="loader"
+        class="d-none position-fixed top-0 left-0 w-100 h-100 bg-dark bg-opacity-50 d-flex justify-content-center align-items-center z-3">
+        <div class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+
     <script>
         // Toggle password visibility
         document.getElementById('showPassword').addEventListener('change', function () {
@@ -159,6 +167,7 @@
             }
         });
 
+        // Form validation
         // Form validation
         document.getElementById('signupForm').addEventListener('submit', async function (event) {
             event.preventDefault(); // Prevent the default form submission
@@ -201,6 +210,9 @@
             }
 
             try {
+                // Show the loader before sending the request
+                document.getElementById('loader').classList.remove('d-none');
+
                 const response = await fetch('/app/controllers/signupController.php', {
                     method: 'POST',
                     headers: {
@@ -222,47 +234,55 @@
                 // Try to parse the response as JSON
                 const jsonResult = JSON.parse(result);
                 if (response.ok) {
-                    // Show verification modal
+                    // Hide the loader after response and show verification modal
+                    document.getElementById('loader').classList.add('d-none');
+
+                    // Show the verification modal
                     const modal = new bootstrap.Modal(document.getElementById('verificationModal'));
                     modal.show();
                 } else {
+                    // Hide the loader and show error alert
+                    document.getElementById('loader').classList.add('d-none');
                     alertMessageElement.textContent = jsonResult.message || 'An error occurred. Please try again.';
                     alertMessageElement.classList.remove('d-none'); // Show error alert
                 }
             } catch (error) {
+                // Hide the loader and show error alert
+                document.getElementById('loader').classList.add('d-none');
                 alertMessageElement.textContent = "An error occurred. Please try again.";
                 alertMessageElement.classList.remove('d-none'); // Show error alert
                 console.error("Signup Error:", error);
             }
         });
 
+
         document.getElementById('verifyBtn').addEventListener('click', async function () {
-    const verificationCode = document.getElementById('verificationCode').value;
-    const email = document.getElementById('email').value; // Ensure email is accessible on the page
+            const verificationCode = document.getElementById('verificationCode').value;
+            const email = document.getElementById('email').value; // Ensure email is accessible on the page
 
-    try {
-        const response = await fetch('/app/controllers/verifyCodeController.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                email: email,
-                verificationCode: verificationCode
-            }),
+            try {
+                const response = await fetch('/app/controllers/verifyCodeController.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        verificationCode: verificationCode
+                    }),
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert('Account verified successfully!');
+                    window.location.href = '/signin'; // Redirect to login page
+                } else {
+                    alert(result.message); // Show error message
+                }
+            } catch (error) {
+                alert('Verification failed. Please try again.');
+            }
         });
-
-        const result = await response.json();
-        if (result.success) {
-            alert('Account verified successfully!');
-            window.location.href = '/signin'; // Redirect to login page
-        } else {
-            alert(result.message); // Show error message
-        }
-    } catch (error) {
-        alert('Verification failed. Please try again.');
-    }
-});
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>

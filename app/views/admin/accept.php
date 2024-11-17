@@ -44,8 +44,25 @@ try {
         throw new Exception("Email already exists in accepted inquiries.");
     }
 
-    // Insert into accepted_inquiries
-    $insertStmt = $pdo->prepare("INSERT INTO accepted_inquiries (full_name, email, contact_number, room, quantity, amenities, preferred_date, session, amenities_quantity, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    // Copy the payment screenshot image (if exists)
+    $paymentScreenshot = $inquiry['payment_screenshot'];
+    $newImagePath = null;
+
+    if ($paymentScreenshot) {
+        // Define source and destination paths
+        $uploadsDir = '../../uploads/payments/'; // Path to the uploads folder
+        $fileInfo = pathinfo($paymentScreenshot); // Get the file info (extension, name)
+        $newImageName = uniqid('payment_') . '.' . $fileInfo['extension']; // New image name
+        $newImagePath = $uploadsDir . $newImageName;
+
+        // Copy the file
+        if (!copy($paymentScreenshot, $newImagePath)) {
+            throw new Exception("Failed to copy payment screenshot image.");
+        }
+    }
+
+    // Insert into accepted_inquiries table
+    $insertStmt = $pdo->prepare("INSERT INTO accepted_inquiries (full_name, email, contact_number, room, quantity, amenities, preferred_date, session, amenities_quantity, status, payment_screenshot) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
     $insertStmt->execute([
         $inquiry['full_name'],
         $inquiry['email'],
@@ -56,7 +73,8 @@ try {
         $inquiry['preferred_date'],
         $inquiry['session'],
         $inquiry['amenities_quantity'],
-        $inquiry['status']
+        $inquiry['status'],
+        $newImagePath, // Store the new image path in the database
     ]);
 
     // Update the original inquiry status to 'accepted'
@@ -72,12 +90,13 @@ try {
     try {
         // Server settings
         $mail->isSMTP();                                            //Send using SMTP
-        $mail->Host = 'smtp.gmail.com';                     //Set the SMTP server to send through
-        $mail->SMTPAuth = true;                                   //Enable SMTP authentication
-        $mail->Username = 'villareyesfamilyprivateresort@gmail.com';                     //SMTP username
-        $mail->Password = 'jyjkgvcolmlxaogk';                               //SMTP password
+        $mail->Host = 'smtp.gmail.com';                              //Set the SMTP server to send through
+        $mail->SMTPAuth = true;                                      //Enable SMTP authentication
+        $mail->Username = 'villareyesfamilyprivateresort@gmail.com';  //SMTP username
+        $mail->Password = 'jyjkgvcolmlxaogk';                        //SMTP password
         $mail->SMTPSecure = "tls";
-        $mail->Port = 587; 
+        $mail->Port = 587;
+
         // Recipients
         $mail->setFrom('villareyesfamilyprivateresort@gmail.com', "Villa Reyes Family Private Resort");
         $mail->addAddress($inquiry['email']);
@@ -85,10 +104,13 @@ try {
         $name = $inquiry['full_name'];
         $arrivalDate = $inquiry['preferred_date'];
         $session = $inquiry['session'];
-        $numGuests = $inquiry['quantity']; 
-        $code = uniqid('VRFPR'); 
+        $numGuests = $inquiry['quantity'];
+        $code = uniqid('VRFPR');
         $room = $inquiry['room'];
 
+        // Content
+        $mail->isHTML(true);  // Set email format to HTML
+        $mail->Subject = 'Your Reservation at Villa Reyes Family Private Resort is Confirmed!';
         // Content
         $mail->isHTML(true);  // Set email format to HTML
         $mail->Subject = 'Your Reservation at Villa Reyes Family Private Resort is Confirmed!';
@@ -115,11 +137,12 @@ try {
             The Villa Reyes Family Private Resort Team
         ";
 
-        $mail->AltBody = "Dear $email, your reservation at Villa Reyes Family Private Resort for $arrivalDate is confirmed. Please check the email for further details.";
+        $mail->AltBody = "Dear $name, your reservation at Villa Reyes Family Private Resort for $arrivalDate is confirmed. Please check the email for further details.";
 
         // Send email
         $mail->send();
         echo 'Message has been sent';
+
     } catch (Exception $e) {
         // Log error or handle it accordingly
         error_log("Mailer Error: {$mail->ErrorInfo}");

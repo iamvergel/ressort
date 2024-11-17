@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $deleteStmt->execute();
 
         // Insert into accepted inquiries
-        $insertStmt = $pdo->prepare("INSERT INTO accepted_inquiries (full_name, email, contact_number, room, quantity, preferred_date, session, status, price, code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $insertStmt = $pdo->prepare("INSERT INTO accepted_inquiries (full_name, email, contact_number, room, quantity, preferred_date, session, status, price, payment_screenshot, code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $code = uniqid('VRFPR'); // Generate a unique confirmation code
         $insertStmt->execute([
             $inquiry['full_name'],
@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $inquiry['session'],
             'accepted', // status to insert
             $inquiry['price'],
+            $inquiry['payment_screenshot'], // Use the actual payment screenshot file path
             $code
         ]);
 
@@ -135,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: /adminInquiries/AmacananVrhouse'); // Change this to your desired redirect
     exit;
 }
-?>      
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -189,91 +190,116 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-<?php include 'app/views/admin/adminInclude/header-top.php'; ?>
+    <?php include 'app/views/admin/adminInclude/header-top.php'; ?>
     <div class="d-flex">
         <?php include 'app/views/admin/adminInclude/sidebar.php'; ?>
 
         <div class="container-fluid" style="height: 100vh; overflow-y: scroll; scrollbar-width: none;">
             <?php include 'app/views/admin/adminInclude/header.php'; ?>
             <div class="container">
-            <div class="content">
+                <div class="content">
 
-        <h2 class="my-5 fw-bold"><i class="bi bi-people-fill me-2"></i>Inquiries</h2>
+                    <h2 class="my-5 fw-bold"><i class="bi bi-people-fill me-2"></i>Inquiries</h2>
 
-        <div class="row w-100 my-5">
-            <button class="col btn btn-warning p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold amacan"
-                onclick="window.location.href = '/adminInquiries/Amacan'"><i
-                    class="bi bi-house-fill me-2"></i>Amacan</button>
-            <button class="col btn btn-success p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold vrhouse"
-                onclick="window.location.href = '/adminInquiries/Vrhouse'"><i class="bi bi-house-door-fill me-2"></i>VR
-                House</button>
-            <button class="col btn btn-primary p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold 22hrs"
-                onclick="window.location.href = '/adminInquiries/AmacananVrhouse'"><i
-                    class="bi bi-houses-fill me-2"></i>Amacan & VR House</button>
-        </div>
+                    <div class="row w-100 my-5">
+                        <button
+                            class="col btn btn-warning p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold amacan"
+                            onclick="window.location.href = '/adminInquiries/Amacan'"><i
+                                class="bi bi-house-fill me-2"></i>Amacan</button>
+                        <button
+                            class="col btn btn-success p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold vrhouse"
+                            onclick="window.location.href = '/adminInquiries/Vrhouse'"><i
+                                class="bi bi-house-door-fill me-2"></i>VR
+                            House</button>
+                        <button
+                            class="col btn btn-primary p-3 mx-2 border-0 rounded-2 shadow-lg text-light fs-2 fw-bold 22hrs"
+                            onclick="window.location.href = '/adminInquiries/AmacananVrhouse'"><i
+                                class="bi bi-houses-fill me-2"></i>Amacan & VR House</button>
+                    </div>
 
-        <h1 class="fw-bold"><i class="bi bi-houses-fill me-2"></i>Amacan & VR House</h1>
-        <div class="table-responsive mt-5">
-            <table id="inquiriesTable" class="container table table-hover p-3">
-                <thead class="table-warning text-dark" style="font-size: 12px">
-                    <tr>
-                        <th>ID</th>
-                        <th>Full Name</th>
-                        <th>Email</th>
-                        <th>Contact Number</th>
-                        <th>Room</th>
-                        <th>Quantity</th>
-                        <th>Preferred Date</th>
-                        <th>Session</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="text-dark" style="font-size: 12px">
-                    <?php foreach ($amacanvrInquiries as $inquiry): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($inquiry['id']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['full_name']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['email']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['contact_number']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['room']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['quantity']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['preferred_date']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['session']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['price']); ?></td>
-                            <td><?php echo htmlspecialchars($inquiry['status']); ?></td>
-                            <td>
-                                <form action="/adminInquiries/AmacananVrhouse" method="POST" style="display:inline;">
-                                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($inquiry['id']); ?>">
-                                    <input type="hidden" name="action" value="accept">
-                                    <button class="btn btn-success btn-sm" style="font-size: 12px" type="submit">
-                                        Accept
-                                    </button>
-                                </form>
-                                <form action="/adminInquiries/AmacananVrhouse" method="POST" style="display:inline;">
-                                    <input type="hidden" name="id" value="<?php echo htmlspecialchars($inquiry['id']); ?>">
-                                    <input type="hidden" name="action" value="decline">
-                                    <button class="btn btn-danger btn-sm" style="font-size: 12px" type="submit">
-                                        Decline
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
+                    <h1 class="fw-bold"><i class="bi bi-houses-fill me-2"></i>Amacan & VR House</h1>
+                    <div class="table-responsive mt-5">
+                        <table id="inquiriesTable" class="container table table-hover p-3">
+                            <thead class="table-warning text-dark" style="font-size: 12px">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Contact Number</th>
+                                    <th>Room</th>
+                                    <th>Quantity</th>
+                                    <th>Preferred Date</th>
+                                    <th>Session</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Payment Screenshot</th> <!-- New Column for Screenshot -->
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-dark" style="font-size: 12px">
+                                <?php foreach ($amacanvrInquiries as $inquiry): ?>
+                                    <tr>
+                                        <td><?php echo htmlspecialchars($inquiry['id']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['full_name']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['email']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['contact_number']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['room']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['quantity']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['preferred_date']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['session']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['price']); ?></td>
+                                        <td><?php echo htmlspecialchars($inquiry['status']); ?></td>
+                                        <!-- New Column for Payment Screenshot -->
+                                        <td>
+                                            <?php if ($inquiry['payment_screenshot']): ?>
+                                                <!-- Display the screenshot image and make it clickable -->
+                                                <a href="/uploads/payment_screenshots/<?php echo htmlspecialchars($inquiry['payment_screenshot']); ?>"
+                                                    target="_blank">
+                                                    <img src="/uploads/payment_screenshots/<?php echo htmlspecialchars($inquiry['payment_screenshot']); ?>"
+                                                        alt="Payment Screenshot"
+                                                        style="width: 50px; height: 50px; object-fit: cover;">
+                                                </a>
+                                            <?php else: ?>
+                                                <p>No screenshot</p>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <form action="/adminInquiries/AmacananVrhouse" method="POST"
+                                                style="display:inline;">
+                                                <input type="hidden" name="id"
+                                                    value="<?php echo htmlspecialchars($inquiry['id']); ?>">
+                                                <input type="hidden" name="action" value="accept">
+                                                <button class="btn btn-success btn-sm" style="font-size: 12px"
+                                                    type="submit">
+                                                    Accept
+                                                </button>
+                                            </form>
+                                            <form action="/adminInquiries/AmacananVrhouse" method="POST"
+                                                style="display:inline;">
+                                                <input type="hidden" name="id"
+                                                    value="<?php echo htmlspecialchars($inquiry['id']); ?>">
+                                                <input type="hidden" name="action" value="decline">
+                                                <button class="btn btn-danger btn-sm" style="font-size: 12px" type="submit">
+                                                    Decline
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- DataTable JS -->
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#inquiriesTable').DataTable({
                 "paging": true,
                 "searching": true,

@@ -103,4 +103,11 @@
 }
 .vrhousepicturecontainer button {
   width: 250px;
+  background-color: #011f37;
+  color: #fff;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+.vrhousepicturecontainer button:hover {
+  background-color: #003866;
 }

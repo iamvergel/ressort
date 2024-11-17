@@ -128,5 +128,13 @@ $icterine1: #f8f169a1;
 
   button {
     width: 250px;
+    background-color: $oxford-blue;
+    color: #fff;
+    font-size: 13px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #003866;
+    }
   }
 }

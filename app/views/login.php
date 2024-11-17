@@ -62,11 +62,13 @@
                                 <input type="text" class="form-control border border-dark" id="username" name="username"
                                     required>
                             </div>
-                            <div class="form-group mt-2">
+                            <div class="form-group mt-2 position-relative">
                                 <label for="password">Password:</label>
                                 <input type="password" class="form-control border border-dark" id="password"
                                     name="password" required>
                                 <a href="/forgotpassword" class="text-primary float-end">Forgot Password?</a>
+                                <i id="togglePassword" class="bi bi-eye-slash position-absolute"
+                                    style="top: 50%; right: 10px; transform: translateY(0%); cursor: pointer;"></i>
                             </div>
 
                             <div id="alertMessage" class="alert alert-danger p-2 mt-5 d-none" role="alert">
@@ -117,55 +119,55 @@
     </div>
 
     <script>
-       document.getElementById('loginForm').addEventListener('submit', async function (event) {
-    event.preventDefault();
+        document.getElementById('loginForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
 
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-    const alertMessageElement = document.getElementById('alertMessage');
-    alertMessageElement.textContent = "Logging in...";
+            const alertMessageElement = document.getElementById('alertMessage');
+            alertMessageElement.textContent = "Logging in...";
 
-    try {
-        // Send AJAX POST request to PHP backend
-        const response = await fetch('/app/controllers/loginController.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password
-            }),
-        });
+            try {
+                // Send AJAX POST request to PHP backend
+                const response = await fetch('/app/controllers/loginController.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    }),
+                });
 
-        const result = await response.json(); // Parse the JSON response
+                const result = await response.json(); // Parse the JSON response
 
-        if (response.ok) {
-            // Successful login
-            if (result.message === 'Login successful') {
-                // Redirect based on role
-                if (result.role === 'admin') {
-                    window.location.href = '/dashboard';
-                } else if (result.role === 'user') {
-                    window.location.href = '/userdashboard';
+                if (response.ok) {
+                    // Successful login
+                    if (result.message === 'Login successful') {
+                        // Redirect based on role
+                        if (result.role === 'admin') {
+                            window.location.href = '/dashboard';
+                        } else if (result.role === 'user') {
+                            window.location.href = '/userdashboard';
+                        }
+                    } else {
+                        alertMessageElement.textContent = result.message || 'An unknown error occurred.';
+                        alertMessageElement.classList.remove('d-none');
+                    }
+                } else {
+                    // Authentication error
+                    alertMessageElement.textContent = result.message || 'Login failed. Please try again.';
+                    alertMessageElement.classList.remove('d-none');
                 }
-            } else {
-                alertMessageElement.textContent = result.message || 'An unknown error occurred.';
+
+            } catch (error) {
+                console.error("Login Error:", error);
+                alertMessageElement.textContent = "Username or password incorrect!";
                 alertMessageElement.classList.remove('d-none');
             }
-        } else {
-            // Authentication error
-            alertMessageElement.textContent = result.message || 'Login failed. Please try again.';
-            alertMessageElement.classList.remove('d-none');
-        }
-
-    } catch (error) {
-        console.error("Login Error:", error);
-        alertMessageElement.textContent = "Username or password incorrect!";
-        alertMessageElement.classList.remove('d-none');
-    }
-});
+        });
 
         // Resend Verification Code functionality
         document.getElementById('resendBtn').addEventListener('click', async function () {
@@ -251,6 +253,16 @@
             }
         });
 
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>

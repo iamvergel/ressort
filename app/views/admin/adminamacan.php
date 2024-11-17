@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $deleteStmt->execute();
 
         // Insert into accepted inquiries
-        $insertStmt = $pdo->prepare("INSERT INTO accepted_inquiries (full_name, email, contact_number, room, quantity, preferred_date, session, status, price, code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $insertStmt = $pdo->prepare("INSERT INTO accepted_inquiries (full_name, email, contact_number, room, quantity, preferred_date, session, status, price, payment_screenshot, code) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $code = uniqid('VRFPR'); // Generate a unique confirmation code
         $insertStmt->execute([
             $inquiry['full_name'],
@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $inquiry['session'],
             'accepted', // status to insert
             $inquiry['price'],
+            $inquiry['payment_screenshot'], // Use the actual payment screenshot file path
             $code
         ]);
 
@@ -233,6 +234,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     <th>Session</th>
                                     <th>Price</th>
                                     <th>Status</th>
+                                    <th>Payment Screenshot</th> <!-- New Column for Screenshot -->
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -249,6 +251,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         <td><?php echo htmlspecialchars($inquiry['session']); ?></td>
                                         <td><?php echo htmlspecialchars($inquiry['price']); ?></td>
                                         <td><?php echo htmlspecialchars($inquiry['status']); ?></td>
+
+                                        <!-- New Column for Payment Screenshot -->
+                                        <td>
+                                            <?php if ($inquiry['payment_screenshot']): ?>
+                                                <!-- Display the screenshot image and make it clickable -->
+                                                <a href="/uploads/payment_screenshots/<?php echo htmlspecialchars($inquiry['payment_screenshot']); ?>"
+                                                    target="_blank">
+                                                    <img src="/uploads/payment_screenshots/<?php echo htmlspecialchars($inquiry['payment_screenshot']); ?>"
+                                                        alt="Payment Screenshot"
+                                                        style="width: 50px; height: 50px; object-fit: cover;">
+                                                </a>
+                                            <?php else: ?>
+                                                <p>No screenshot</p>
+                                            <?php endif; ?>
+                                        </td>
+
                                         <td>
                                             <form action="/adminInquiries/Amacan" method="POST" style="display:inline;">
                                                 <input type="hidden" name="id"
@@ -280,11 +298,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- Include jQuery and DataTables JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
 
     <!-- Initialize DataTable -->
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#inquiriesTable').DataTable({
                 "paging": true,
                 "searching": true,
