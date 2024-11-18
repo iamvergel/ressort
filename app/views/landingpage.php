@@ -311,7 +311,7 @@ $firstDayOfMonth = date('w', strtotime("$year-$month-01"));
       }
     }
 
-    window.location.href = '/userdashboard?month=' + month + '&year=' + year;
+    window.location.href = '/?month=' + month + '&year=' + year;
   }
 
   const events = <?php echo json_encode($events); ?>;
@@ -408,8 +408,6 @@ $firstDayOfMonth = date('w', strtotime("$year-$month-01"));
         roomInput.value = "Amacan & VR House"; // Change room to Amacan & VR House
       }
     };
-
-    window.location.href = '/signin';
   }
 
   function setDate(date) {

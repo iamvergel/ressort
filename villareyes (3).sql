@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2024 at 03:35 AM
+-- Generation Time: Nov 18, 2024 at 02:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -39,25 +39,36 @@ CREATE TABLE `accepted_inquiries` (
   `session` varchar(50) DEFAULT NULL,
   `code` varchar(50) DEFAULT NULL,
   `price` decimal(10,2) DEFAULT NULL,
-  `status` varchar(50) DEFAULT NULL
+  `status` varchar(50) DEFAULT NULL,
+  `payment_screenshot` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `accepted_inquiries`
 --
 
-INSERT INTO `accepted_inquiries` (`id`, `full_name`, `email`, `contact_number`, `room`, `quantity`, `preferred_date`, `created_at`, `session`, `code`, `price`, `status`) VALUES
-(1, 'jenalyn surio kadusale', 'kadusaflejenalyn65@gmail.com', '09626852365', 'Amacan', 10, '2024-10-16', '2024-10-07 06:16:07', 'AM', 'VRFPR67037ca72a150', NULL, 'paid'),
-(2, 'jenalyn surio kadusale', 'kadusaflejenalyn65@gmail.com', '09626852365', 'Amacan', 10, '2024-10-16', '2024-10-07 06:16:11', 'AM', 'VRFPR67037cabd9bf0', NULL, 'accepted'),
-(3, 'jenalyn surio kadusale', 'kadusaflejenalyn65@gmail.com', '09626852365', 'Amacan', 10, '2024-10-16', '2024-10-07 06:21:01', 'AM', 'VRFPR67037dcd06c0c', 0.00, '8000.00'),
-(4, 'jenalyn surio kadusale', 'kadusaflejenalyn65@gmail.com', '09626852365', 'Amacan', 10, '2024-10-16', '2024-10-07 06:21:33', 'AM', 'VRFPR67037ded4f442', 8000.00, 'paid'),
-(5, 'Vergel Macayan', 'vergelmacayan7@gmail.com', '09363007580', 'Amacan', 10, '2024-10-17', '2024-10-07 06:33:37', 'AM', 'VRFPR670380c1ba873', 8000.00, 'paid'),
-(6, 'Vergel Macayan', 'vergelmacayan7@gmail.com', '09363007580', 'Amacan', 10, '2024-10-17', '2024-11-10 02:04:36', 'AM', 'VRFPR673014b4adb55', 8000.00, 'paid'),
-(7, 'jenalyn surio kadusale', 'kadusalejenalyn65@gmail.com', '09626852365', 'Amacan & VR House', 20, '2024-10-15', '2024-11-11 02:04:04', '22 Hours', 'VRFPR6731661422f75', 20000.00, 'paid'),
-(8, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'Amacan & VR House', 20, '2024-11-17', '2024-11-11 02:17:08', '22 Hours', 'VRFPR673169240321b', 20000.00, 'paid'),
-(9, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'Amacan', 10, '2024-11-12', '2024-11-11 03:47:43', 'AM', 'VRFPR67317e5fcbdd7', 8000.00, 'paid'),
-(10, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'Amacan', 10, '2024-11-11', '2024-11-11 03:50:24', 'PM', 'VRFPR67317f00b1886', 9000.00, 'paid'),
-(11, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'Amacan', 10, '2024-11-11', '2024-11-11 03:52:08', 'AM', 'VRFPR67317f6867c9d', 8000.00, 'paid');
+INSERT INTO `accepted_inquiries` (`id`, `full_name`, `email`, `contact_number`, `room`, `quantity`, `preferred_date`, `created_at`, `session`, `code`, `price`, `status`, `payment_screenshot`) VALUES
+(1, 'jenalyn surio kadusale', 'kadusaflejenalyn65@gmail.com', '09626852365', 'Amacan', 10, '2024-10-16', '2024-10-07 06:16:07', 'AM', 'VRFPR67037ca72a150', NULL, 'paid', NULL),
+(2, 'jenalyn surio kadusale', 'kadusaflejenalyn65@gmail.com', '09626852365', 'Amacan', 10, '2024-10-16', '2024-10-07 06:16:11', 'AM', 'VRFPR67037cabd9bf0', NULL, 'accepted', NULL),
+(3, 'jenalyn surio kadusale', 'kadusaflejenalyn65@gmail.com', '09626852365', 'Amacan', 10, '2024-10-16', '2024-10-07 06:21:01', 'AM', 'VRFPR67037dcd06c0c', 0.00, '8000.00', NULL),
+(4, 'jenalyn surio kadusale', 'kadusaflejenalyn65@gmail.com', '09626852365', 'Amacan', 10, '2024-10-16', '2024-10-07 06:21:33', 'AM', 'VRFPR67037ded4f442', 8000.00, 'paid', NULL),
+(5, 'Vergel Macayan', 'vergelmacayan7@gmail.com', '09363007580', 'Amacan', 10, '2024-10-17', '2024-10-07 06:33:37', 'AM', 'VRFPR670380c1ba873', 8000.00, 'paid', NULL),
+(6, 'Vergel Macayan', 'vergelmacayan7@gmail.com', '09363007580', 'Amacan', 10, '2024-10-17', '2024-11-10 02:04:36', 'AM', 'VRFPR673014b4adb55', 8000.00, 'paid', NULL),
+(7, 'jenalyn surio kadusale', 'kadusalejenalyn65@gmail.com', '09626852365', 'Amacan & VR House', 20, '2024-10-15', '2024-11-11 02:04:04', '22 Hours', 'VRFPR6731661422f75', 20000.00, 'paid', NULL),
+(8, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'Amacan & VR House', 20, '2024-11-17', '2024-11-11 02:17:08', '22 Hours', 'VRFPR673169240321b', 20000.00, 'paid', NULL),
+(9, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'Amacan', 10, '2024-11-12', '2024-11-11 03:47:43', 'AM', 'VRFPR67317e5fcbdd7', 8000.00, 'paid', NULL),
+(10, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'Amacan', 10, '2024-11-11', '2024-11-11 03:50:24', 'PM', 'VRFPR67317f00b1886', 9000.00, 'paid', NULL),
+(11, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'Amacan', 10, '2024-11-11', '2024-11-11 03:52:08', 'AM', 'VRFPR67317f6867c9d', 8000.00, 'paid', NULL),
+(12, 'Jenalyn Kadusale Macayan', 'vergelmacayan7@gmail.com', '09054621457', 'Amacan', 10, '2024-11-21', '2024-11-17 16:10:55', 'PM', 'VRFPR673a158f7c4cb', 9000.00, 'accepted', NULL),
+(13, 'Jenalyn Kadusale Macayan', 'vergelmacayan7@gmail.com', '09054621457', 'Amacan & VR House', 20, '2024-11-22', '2024-11-17 16:19:51', '22 Hours', 'VRFPR673a17a702261', 20000.00, 'accepted', NULL),
+(14, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'Amacan', 10, '2024-10-16', '2024-11-17 16:20:09', 'PM', 'VRFPR673a17b965940', 9000.00, 'accepted', NULL),
+(15, 'Jenalyn Kadusale Macayan', 'vergelmacayan7@gmail.com', '09054621457', 'Amacan', 10, '2024-11-20', '2024-11-17 16:46:15', 'PM', 'VRFPR673a1dd7da19f', 9000.00, 'accepted', 'payment_1731853851.png'),
+(16, 'Jenalyn Kadusale Macayan', 'vergelmacayan7@gmail.com', '09054621457', 'Amacan', 10, '2024-11-18', '2024-11-17 16:48:56', 'AM', 'VRFPR673a1e788a0c0', 8000.00, 'accepted', NULL),
+(17, 'Jenalyn Kadusale Macayan', 'vergelmacayan7@gmail.com', '09054621457', 'Amacan', 10, '2024-11-18', '2024-11-17 16:49:59', 'PM', 'VRFPR673a1eb77a54f', 9000.00, 'accepted', NULL),
+(18, 'Jenalyn Kadusale Macayan', 'vergelmacayan7@gmail.com', '09054621457', 'Amacan', 10, '2024-11-19', '2024-11-17 16:50:54', 'AM', 'VRFPR673a1eeef2ec1', 8000.00, 'accepted', NULL),
+(19, 'Jenalyn Kadusale Macayan', 'vergelmacayan7@gmail.com', '09054621457', 'VR House', 10, '2024-11-21', '2024-11-17 16:52:18', 'AM', 'VRFPR673a1f425d5a7', 8000.00, 'accepted', 'payment_jenalyn_kadusale_macayan_20241121.png'),
+(20, 'Jenalyn Kadusale Macayan', 'vergelmacayan7@gmail.com', '09054621457', 'Amacan & VR House', 10, '2024-11-23', '2024-11-17 16:53:24', '22 Hours', 'VRFPR673a1f849f6ca', 10000.00, 'accepted', 'payment_jenalyn_kadusale_macayan_20241123.png'),
+(21, 'Jenalyn Kadusale Macayan', 'vergelmacayan7@gmail.com', '09054621457', 'VR House', 10, '2024-11-16', '2024-11-18 01:13:51', 'PM', 'VRFPR673a94cf6de91', 10000.00, 'accepted', 'payment_jenalyn_kadusale_macayan_20241116.jpg');
 
 -- --------------------------------------------------------
 
@@ -126,7 +137,7 @@ INSERT INTO `availableslots` (`id`, `date`, `time`, `slots`, `created_at`, `upda
 (304, '2024-11-16', '08:00:00', 0, '2024-11-11 01:24:28', '2024-11-11 01:24:45', 'Amacan', '08:00:00', '18:00:00', 'AM'),
 (305, '2024-11-16', '18:00:00', 0, '2024-11-11 01:24:28', '2024-11-11 01:27:37', 'Amacan', '18:00:00', '06:00:00', 'PM'),
 (306, '2024-11-16', '08:00:00', 0, '2024-11-11 01:24:28', '2024-11-12 01:19:53', 'VR House', '08:00:00', '18:00:00', 'AM'),
-(307, '2024-11-16', '18:00:00', 1, '2024-11-11 01:24:28', '2024-11-11 01:24:28', 'VR House', '18:00:00', '06:00:00', 'PM'),
+(307, '2024-11-16', '18:00:00', 0, '2024-11-11 01:24:28', '2024-11-17 14:50:32', 'VR House', '18:00:00', '06:00:00', 'PM'),
 (308, '2024-11-16', '08:00:00', 0, '2024-11-11 01:24:28', '2024-11-11 01:24:45', '22 Hours', '08:00:00', '04:00:00', '22 Hours'),
 (309, '2024-11-11', '08:00:00', 0, '2024-11-11 01:29:09', '2024-11-11 01:29:21', 'Amacan', '08:00:00', '18:00:00', 'AM'),
 (310, '2024-11-11', '18:00:00', 0, '2024-11-11 01:29:09', '2024-11-11 01:29:49', 'Amacan', '18:00:00', '06:00:00', 'PM'),
@@ -138,11 +149,36 @@ INSERT INTO `availableslots` (`id`, `date`, `time`, `slots`, `created_at`, `upda
 (316, '2024-11-17', '08:00:00', 0, '2024-11-11 01:37:42', '2024-11-11 01:37:53', 'VR House', '08:00:00', '18:00:00', 'AM'),
 (317, '2024-11-17', '18:00:00', 0, '2024-11-11 01:37:42', '2024-11-11 01:37:53', 'VR House', '18:00:00', '06:00:00', 'PM'),
 (318, '2024-11-17', '08:00:00', 0, '2024-11-11 01:37:42', '2024-11-11 01:37:53', '22 Hours', '08:00:00', '04:00:00', '22 Hours'),
-(319, '2024-11-18', '08:00:00', 1, '2024-11-12 01:22:46', '2024-11-12 01:22:46', 'Amacan', '08:00:00', '18:00:00', 'AM'),
-(320, '2024-11-18', '18:00:00', 1, '2024-11-12 01:22:46', '2024-11-12 01:22:46', 'Amacan', '18:00:00', '06:00:00', 'PM'),
+(319, '2024-11-18', '08:00:00', 0, '2024-11-12 01:22:46', '2024-11-17 14:02:07', 'Amacan', '08:00:00', '18:00:00', 'AM'),
+(320, '2024-11-18', '18:00:00', 0, '2024-11-12 01:22:46', '2024-11-17 14:05:07', 'Amacan', '18:00:00', '06:00:00', 'PM'),
 (321, '2024-11-18', '08:00:00', 1, '2024-11-12 01:22:46', '2024-11-12 01:22:46', 'VR House', '08:00:00', '18:00:00', 'AM'),
 (322, '2024-11-18', '18:00:00', 1, '2024-11-12 01:22:46', '2024-11-12 01:22:46', 'VR House', '18:00:00', '06:00:00', 'PM'),
-(323, '2024-11-18', '08:00:00', 1, '2024-11-12 01:22:46', '2024-11-12 01:22:46', '22 Hours', '08:00:00', '04:00:00', '22 Hours');
+(323, '2024-11-18', '08:00:00', 0, '2024-11-12 01:22:46', '2024-11-17 14:02:07', '22 Hours', '08:00:00', '04:00:00', '22 Hours'),
+(324, '2024-11-19', '08:00:00', 0, '2024-11-17 14:08:12', '2024-11-17 14:08:30', 'Amacan', '08:00:00', '18:00:00', 'AM'),
+(325, '2024-11-19', '18:00:00', 0, '2024-11-17 14:08:12', '2024-11-17 14:12:36', 'Amacan', '18:00:00', '06:00:00', 'PM'),
+(326, '2024-11-19', '08:00:00', 1, '2024-11-17 14:08:12', '2024-11-17 14:08:12', 'VR House', '08:00:00', '18:00:00', 'AM'),
+(327, '2024-11-19', '18:00:00', 1, '2024-11-17 14:08:12', '2024-11-17 14:08:12', 'VR House', '18:00:00', '06:00:00', 'PM'),
+(328, '2024-11-19', '08:00:00', 0, '2024-11-17 14:08:12', '2024-11-17 14:08:30', '22 Hours', '08:00:00', '04:00:00', '22 Hours'),
+(329, '2024-11-20', '08:00:00', 0, '2024-11-17 14:16:57', '2024-11-17 14:31:57', 'Amacan', '08:00:00', '18:00:00', 'AM'),
+(330, '2024-11-20', '18:00:00', 0, '2024-11-17 14:16:57', '2024-11-17 14:33:31', 'Amacan', '18:00:00', '06:00:00', 'PM'),
+(331, '2024-11-20', '08:00:00', 0, '2024-11-17 14:16:57', '2024-11-18 01:12:52', 'VR House', '08:00:00', '18:00:00', 'AM'),
+(332, '2024-11-20', '18:00:00', 1, '2024-11-17 14:16:57', '2024-11-17 14:16:57', 'VR House', '18:00:00', '06:00:00', 'PM'),
+(333, '2024-11-20', '08:00:00', 0, '2024-11-17 14:16:57', '2024-11-17 14:31:57', '22 Hours', '08:00:00', '04:00:00', '22 Hours'),
+(334, '2024-11-21', '08:00:00', 0, '2024-11-17 14:38:15', '2024-11-17 14:38:43', 'Amacan', '08:00:00', '18:00:00', 'AM'),
+(335, '2024-11-21', '18:00:00', 0, '2024-11-17 14:38:15', '2024-11-17 14:46:03', 'Amacan', '18:00:00', '06:00:00', 'PM'),
+(336, '2024-11-21', '08:00:00', 0, '2024-11-17 14:38:15', '2024-11-17 14:54:55', 'VR House', '08:00:00', '18:00:00', 'AM'),
+(337, '2024-11-21', '18:00:00', 1, '2024-11-17 14:38:15', '2024-11-17 14:38:15', 'VR House', '18:00:00', '06:00:00', 'PM'),
+(338, '2024-11-21', '08:00:00', 0, '2024-11-17 14:38:15', '2024-11-17 14:38:43', '22 Hours', '08:00:00', '04:00:00', '22 Hours'),
+(339, '2024-11-22', '08:00:00', 0, '2024-11-17 14:55:35', '2024-11-17 14:55:53', 'Amacan', '08:00:00', '18:00:00', 'AM'),
+(340, '2024-11-22', '18:00:00', 0, '2024-11-17 14:55:35', '2024-11-17 14:55:53', 'Amacan', '18:00:00', '06:00:00', 'PM'),
+(341, '2024-11-22', '08:00:00', 0, '2024-11-17 14:55:35', '2024-11-17 14:55:53', 'VR House', '08:00:00', '18:00:00', 'AM'),
+(342, '2024-11-22', '18:00:00', 0, '2024-11-17 14:55:35', '2024-11-17 14:55:53', 'VR House', '18:00:00', '06:00:00', 'PM'),
+(343, '2024-11-22', '08:00:00', 0, '2024-11-17 14:55:35', '2024-11-17 14:55:53', '22 Hours', '08:00:00', '04:00:00', '22 Hours'),
+(344, '2024-11-23', '08:00:00', 0, '2024-11-17 16:32:37', '2024-11-17 16:53:16', 'Amacan', '08:00:00', '18:00:00', 'AM'),
+(345, '2024-11-23', '18:00:00', 0, '2024-11-17 16:32:37', '2024-11-17 16:53:16', 'Amacan', '18:00:00', '06:00:00', 'PM'),
+(346, '2024-11-23', '08:00:00', 0, '2024-11-17 16:32:37', '2024-11-17 16:53:16', 'VR House', '08:00:00', '18:00:00', 'AM'),
+(347, '2024-11-23', '18:00:00', 0, '2024-11-17 16:32:37', '2024-11-17 16:53:16', 'VR House', '18:00:00', '06:00:00', 'PM'),
+(348, '2024-11-23', '08:00:00', 0, '2024-11-17 16:32:37', '2024-11-17 16:53:16', '22 Hours', '08:00:00', '04:00:00', '22 Hours');
 
 -- --------------------------------------------------------
 
@@ -162,6 +198,7 @@ CREATE TABLE `inquiries` (
   `session` varchar(100) DEFAULT NULL,
   `code` varchar(50) DEFAULT NULL,
   `price` decimal(20,2) DEFAULT NULL,
+  `payment_screenshot` varchar(255) DEFAULT NULL,
   `status` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -169,12 +206,12 @@ CREATE TABLE `inquiries` (
 -- Dumping data for table `inquiries`
 --
 
-INSERT INTO `inquiries` (`id`, `full_name`, `email`, `contact_number`, `room`, `quantity`, `preferred_date`, `created_at`, `session`, `code`, `price`, `status`) VALUES
-(9, 'jenalyn surio kadusale', 'kadusaflejenalyn65@gmail.com', '09626852365', 'Amacan', 10, '2024-10-16', '2024-10-06 21:11:20', 'AM', '67035158dd3f8', 8000.00, 'accepted'),
-(10, 'jenalyn surio kadusale', 'kadusasdlejenalyn65@gmail.com', '09626852365', 'VR House', 10, '2024-10-16', '2024-10-06 21:24:23', 'AM', '67035467a81c5', 8000.00, 'pending'),
-(12, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'Amacan', 10, '2024-10-16', '2024-11-10 17:36:39', 'PM', '673151974a52d', 9000.00, 'pending'),
-(22, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'Amacan & VR House', 10, '2024-11-12', '2024-11-10 18:37:20', '22 Hours', '67315fd08dfe4', 9000.00, 'declined'),
-(24, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'VR House', 10, '2024-11-16', '2024-11-11 18:19:53', 'AM', '6732ad39a2ae5', 9000.00, 'pending');
+INSERT INTO `inquiries` (`id`, `full_name`, `email`, `contact_number`, `room`, `quantity`, `preferred_date`, `created_at`, `session`, `code`, `price`, `payment_screenshot`, `status`) VALUES
+(9, 'jenalyn surio kadusale', 'kadusaflejenalyn65@gmail.com', '09626852365', 'Amacan', 10, '2024-10-16', '2024-10-06 21:11:20', 'AM', '67035158dd3f8', 8000.00, NULL, 'accepted'),
+(10, 'jenalyn surio kadusale', 'kadusasdlejenalyn65@gmail.com', '09626852365', 'VR House', 10, '2024-10-16', '2024-10-06 21:24:23', 'AM', '67035467a81c5', 8000.00, NULL, 'pending'),
+(22, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'Amacan & VR House', 10, '2024-11-12', '2024-11-10 18:37:20', '22 Hours', '67315fd08dfe4', 9000.00, NULL, 'declined'),
+(24, 'jenalyn surio kadusale', 'vergelmacayan7@gmail.com', '09363007584', 'VR House', 10, '2024-11-16', '2024-11-11 18:19:53', 'AM', '6732ad39a2ae5', 9000.00, NULL, 'pending'),
+(36, 'Jenalyn Kadusale Macayan', 'vergelmacayan7@gmail.com', '09054621457', 'VR House', 10, '2024-11-20', '2024-11-17 18:12:52', 'AM', '673a949434bf2', 8000.00, 'payment_jenalyn_kadusale_macayan_20241120.png', 'declined');
 
 -- --------------------------------------------------------
 
@@ -230,7 +267,9 @@ CREATE TABLE `users_account` (
 
 INSERT INTO `users_account` (`id`, `email`, `name`, `username`, `password_hash`, `phone`, `street_address`, `verified`, `verification_code`, `created_at`, `updated_at`) VALUES
 (8, 'vergelmacayan@gmail.com', 'jenalyn surio kadusale', 'dada', '$2y$10$5o3jPV6ar1WqW63U20XC/eNXjXQXK2g0wOa8QF3rjJgK96M.miggC', '09363007584', 'ph8a pkg11c blk126 ex. lot bagong silang caloocan city', 1, '979275', '2024-11-10 04:58:03', '2024-11-11 04:27:25'),
-(9, 'vergelmacayan7@gmail.com', 'jenalyn surio kadusale', 'pogi', '$2y$10$zrJsF8hX4VFPSZKYSC7SFutHoW9//eMo93psfBu9mrK2pG0uGklp6', '09363007584', 'ph8a pkg11c blk126 ex. lot bagong silang caloocan city', 1, '148783', '2024-11-10 05:13:41', '2024-11-12 01:21:52');
+(9, 'vergelmacaya@gmail.com', 'jenalyn surio kadusale', 'pogi', '$2y$10$zrJsF8hX4VFPSZKYSC7SFutHoW9//eMo93psfBu9mrK2pG0uGklp6', '09363007584', 'ph8a pkg11c blk126 ex. lot bagong silang caloocan city', 0, '148783', '2024-11-10 05:13:41', '2024-11-17 12:47:20'),
+(10, 'vergelmacayan7@gmail.com', 'Jenalyn Kadusale Macayan', 'pogopogi', '$2y$10$iiS90XLAM33mB1.Xayox5uiP393FXglI0FX8na1diIuBHgSjs4WwO', '09054621457', '17364 Rosal St. Bo. Sanlazaro', 1, '512728', '2024-11-17 12:47:58', '2024-11-17 12:48:55'),
+(11, 'vmacayan7@gmail.com', 'Jenalyn Kadusale Macayan', '2021-0448', '$2y$10$jyAysa.8oeifrbXHk.nU/u/VgopPb0ayxPIuNlesXj4UpHsy0qufC', '09054621457', '17364 Rosal St. Bo. Sanlazaro', 0, '960362', '2024-11-18 01:15:28', '2024-11-18 01:15:28');
 
 --
 -- Indexes for dumped tables
@@ -277,19 +316,19 @@ ALTER TABLE `users_account`
 -- AUTO_INCREMENT for table `accepted_inquiries`
 --
 ALTER TABLE `accepted_inquiries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `availableslots`
 --
 ALTER TABLE `availableslots`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=324;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=349;
 
 --
 -- AUTO_INCREMENT for table `inquiries`
 --
 ALTER TABLE `inquiries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -301,7 +340,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_account`
 --
 ALTER TABLE `users_account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
