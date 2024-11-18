@@ -49,7 +49,7 @@ session_start(); // Start the session
                                 src="https://github.com/Manjares360/villareyesimage/blob/main/ameneties/photo_2024-10-29_15-31-59.jpg?raw=true"
                                 width="100%" alt="Image 1">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <!-- Trigger Modal Button -->
@@ -72,7 +72,7 @@ session_start(); // Start the session
                                 src="https://github.com/Manjares360/villareyesimage/blob/main/ameneties/photo_2024-10-29_15-35-24.jpg?raw=true"
                                 width="100%" alt="Image 2">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <!-- Trigger Modal Button -->
@@ -95,7 +95,7 @@ session_start(); // Start the session
                                 src="https://github.com/Manjares360/villareyesimage/blob/main/ameneties/photo_2024-10-29_15-36-04.jpg?raw=true"
                                 width="100%" alt="Image 2">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <!-- Trigger Modal Button -->
@@ -118,7 +118,7 @@ session_start(); // Start the session
                                 src="https://github.com/Manjares360/villareyesimage/blob/main/ameneties/6.jpg?raw=true"
                                 width="100%" alt="Image 2">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                                
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <!-- Trigger Modal Button -->
@@ -141,7 +141,7 @@ session_start(); // Start the session
                                 src="public\assets\images\ressortimages\amacan01.jpg"
                                 width="100%" alt="Image 2">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                               
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <!-- Trigger Modal Button -->
@@ -164,7 +164,7 @@ session_start(); // Start the session
                                 src="https://github.com/Manjares360/villareyesimage/blob/main/ameneties/11.jpg?raw=true"
                                 width="100%" alt="Image 2">
                             <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+                               
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <!-- Trigger Modal Button -->
