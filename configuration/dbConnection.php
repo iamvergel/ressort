@@ -1,10 +1,10 @@
 <?php
 // Database connection details
 // config.php
-$host = 'localhost';
+$host = 'resort.ct40mymimujv.ap-southeast-2.rds.amazonaws.com';
 $db   = 'villareyes'; // Change to your database name
-$user = 'root'; // Change to your MySQL username
-$pass = ''; // Change to your MySQL password
+$user = 'admin'; // Change to your MySQL username
+$pass = 'WTY4c54Bucyp9Nn2JIOm'; // Change to your MySQL password
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
